@@ -6,7 +6,8 @@ public class NPCStats : MonoBehaviour
 {
     [SerializeField] int healthPoint;
     [SerializeField] float speed;
-
+    [SerializeField] int NPCLevel;
+    [SerializeField] int NPCexpMultiplier;
 
     public void GetHit(int hit)
     {
@@ -14,6 +15,7 @@ public class NPCStats : MonoBehaviour
         if(healthPoint <= 0)
         {
             GetComponent<Animator>().enabled = false;
+            PlayerStats.Instance.AddExperiencePoint(NPCexpMultiplier * NPCLevel);
         }
     }
 }

@@ -43,6 +43,6 @@ public class WeaponController : MonoBehaviour
     private void SetWeapon()
     {
         weaponInfo.text = equipedWeapons[currentWeapon].weaponName;
-        PlayerStats.Instance.SetCurrentDamage(equipedWeapons[currentWeapon].damage);
+        PlayerStats.Instance.SetCurrentDamage(equipedWeapons[currentWeapon].minDamage, equipedWeapons[currentWeapon].maxDamage);
     }
 }
