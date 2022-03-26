@@ -13,7 +13,7 @@ public class PlayerCameraController : MonoBehaviour
     [SerializeField] LayerMask combatMask = new LayerMask();
     [SerializeField] GameObject crosshair;
     [SerializeField] GameObject hitedPoint;
-    [SerializeField] GameObject damageText;
+    [SerializeField] GameObject damageText; 
 
     ThirdPersonController thirdPersonController;
     StarterAssetsInputs starterAssetsInputs;
@@ -88,12 +88,9 @@ public class PlayerCameraController : MonoBehaviour
             {
                 
                 case Type.HANDS:
-                    Debug.Log("Test");
                     break;
                 // Each weaponType should have own anims and behaviours
                 default:
-                    Debug.Log(hitedObj);
-                    Debug.Log(hitTransform);
                     Shoot(hitedObj, hitTransform);
                     break;
             }            

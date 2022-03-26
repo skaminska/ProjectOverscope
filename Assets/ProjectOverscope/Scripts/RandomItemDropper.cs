@@ -4,34 +4,29 @@ using UnityEngine;
 
 public class RandomItemDropper : MonoBehaviour
 {
-    [SerializeField] GameObject drop;
-    private void Awake()
+    [SerializeField] GameObject lootWeapon;
+    [SerializeField] GameObject lootMoney;
+    public void DrawLoot()
     {
-        for(int i =0; i<10; i++)
-        {
-           Weapon weapon = DropWeapon();
-            Debug.Log(weapon.weaponClass + " " + weapon.weaponType + " " + weapon.weaponName + " " + weapon.minDamage + " " + weapon.maxDamage);
-        }
+
         int dropChance = Random.Range(0, 100);
         if(dropChance > 60)
         {
             int whatToDrop = Random.Range(0, 100);
             if (whatToDrop < 60)
             {
-                Debug.Log("Here's your money");
+                PlayerStats.Instance.AddMoney(Random.Range(5,10));
             }
             else
             {
-                Weapon weapon = DropWeapon();
-                drop.GetComponent<Weapon>().weaponName = weapon.weaponName;
-
-                //newWeapon = DropWeapon();
-                //Instantiate(drop, transform.position, Quaternion.identity);
+                DropWeapon();
+                Instantiate(lootWeapon, transform.position, Quaternion.identity);
             }
         }
+        //Instantiate(loot, transform.position, Quaternion.identity);
     }
 
-    private Weapon DropWeapon()
+    private void DropWeapon()
     {
         WeaponClass weaponClass = WeaponClass.COMMON;
         Type weaponType = Type.MELEE;
@@ -69,8 +64,8 @@ public class RandomItemDropper : MonoBehaviour
         int damage = (PlayerStats.Instance.GetCurrentLevel() * (int)weaponClass)*(int)weaponType;
         string name = weaponClass + " " + weaponType;
 
-        Debug.Log(PlayerStats.Instance.GetCurrentLevel()); 
-                
-        return new Weapon(weaponClass, weaponType, name, damage);
+        Debug.Log(PlayerStats.Instance.GetCurrentLevel());
+
+        lootWeapon.GetComponent<Weapon>().SetWeaponStats(weaponClass, weaponType, name, damage);
     }
 }

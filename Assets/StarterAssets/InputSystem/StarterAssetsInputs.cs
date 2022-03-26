@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace StarterAssets
 {
-	public class StarterAssetsInputs : MonoBehaviour
+	public class StarterAssetsInputs : Singleton<StarterAssetsInputs>
 	{
 		[Header("Character Input Values")]
 		public Vector2 move;
@@ -15,6 +15,8 @@ namespace StarterAssets
 		public bool aim;
 		public bool atack;
 		public Vector2 changeWeapon;
+		public bool openInventory;
+		public bool interact;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -60,6 +62,14 @@ namespace StarterAssets
 		{
 			WeaponChangeInput(value.Get<Vector2>());
 		}
+		public void OnOpenInventory(InputValue value)
+		{
+			OpenInventoryInput(value.isPressed);
+		}
+		public void OnInteract(InputValue value)
+		{
+			InteractInput(value.isPressed);
+		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -95,6 +105,14 @@ namespace StarterAssets
 		public void WeaponChangeInput(Vector2 newWeaponChangeState)
 		{
 			changeWeapon = newWeaponChangeState;
+		}
+		public void OpenInventoryInput(bool newOpenInventory)
+		{
+			openInventory = newOpenInventory;
+		}
+		public void InteractInput(bool newInteractState)
+		{
+			interact = newInteractState;
 		}
 
 #if !UNITY_IOS || !UNITY_ANDROID

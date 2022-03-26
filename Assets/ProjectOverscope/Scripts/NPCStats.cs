@@ -8,14 +8,22 @@ public class NPCStats : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] int NPCLevel;
     [SerializeField] int NPCexpMultiplier;
+    RandomItemDropper randomItemDropper;
+
+    private void Start()
+    {
+        randomItemDropper = GetComponent<RandomItemDropper>();
+    }
 
     public void GetHit(int hit)
     {
         healthPoint -= hit;
         if(healthPoint <= 0)
         {
-            GetComponent<Animator>().enabled = false;
+            randomItemDropper.DrawLoot();
             PlayerStats.Instance.AddExperiencePoint(NPCexpMultiplier * NPCLevel);
+            BasicNPCController.Instance.AddToList(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

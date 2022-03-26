@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] public int maxDamage;
     [SerializeField] public WeaponClass weaponClass;
 
-    public Weapon(WeaponClass weaponClass, Type weaponType, string weaponName, int damage)
+    public void SetWeaponStats(WeaponClass weaponClass, Type weaponType, string weaponName, int damage)
     {
         this.weaponClass = weaponClass;
         this.weaponType = weaponType;

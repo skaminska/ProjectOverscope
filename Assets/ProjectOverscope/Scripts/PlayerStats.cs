@@ -22,7 +22,7 @@ public class PlayerStats : Singleton<PlayerStats>
     {
         maxHealth = 10;
         currentHealth = maxHealth;
-        currentLevel = 3;
+        currentLevel = 1;
         experiencePoints = 0;
         baseDamage = 1;
         money = 0;
@@ -32,7 +32,12 @@ public class PlayerStats : Singleton<PlayerStats>
         playerStatsUIController = GetComponent<PlayerStatsUIController>();
         playerStatsUIController.InitialSettings(currentLevel, nextLevelRequirements);
     }
-    
+
+    internal void AddMoney(int money)
+    {
+        this.money = money;
+    }
+
     public int GetCurrentDamage()
     {
         return UnityEngine.Random.Range(currentDamageMin, currentDamageMax);

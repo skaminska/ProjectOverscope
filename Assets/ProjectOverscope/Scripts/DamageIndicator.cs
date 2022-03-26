@@ -23,7 +23,6 @@ public class DamageIndicator : MonoBehaviour
 
     public void SetDamageText(int damage)
     {
-        Debug.Log(damage);
         damageText.text = damage.ToString();
     }
 }
