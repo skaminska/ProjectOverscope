@@ -15,7 +15,7 @@ namespace StarterAssets
 		public bool aim;
 		public bool atack;
 		public Vector2 changeWeapon;
-		public bool openInventory;
+		public bool inventory;
 		public bool interact;
 
 		[Header("Movement Settings")]
@@ -62,9 +62,9 @@ namespace StarterAssets
 		{
 			WeaponChangeInput(value.Get<Vector2>());
 		}
-		public void OnOpenInventory(InputValue value)
+		public void OnInventory(InputValue value)
 		{
-			OpenInventoryInput(value.isPressed);
+			InventoryInput(value.isPressed);
 		}
 		public void OnInteract(InputValue value)
 		{
@@ -106,9 +106,9 @@ namespace StarterAssets
 		{
 			changeWeapon = newWeaponChangeState;
 		}
-		public void OpenInventoryInput(bool newOpenInventory)
+		public void InventoryInput(bool newInventory)
 		{
-			openInventory = newOpenInventory;
+			inventory = newInventory;
 		}
 		public void InteractInput(bool newInteractState)
 		{

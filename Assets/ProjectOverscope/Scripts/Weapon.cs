@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
         this.weaponName = weaponName;
         this.minDamage = damage - (int)(0.1 * damage);
         this.maxDamage = damage + (int)(0.1 * damage);
+        Debug.Log(this.weaponClass + " " + this.weaponType + " " + this.minDamage + "-" + this.maxDamage + "  | Level: " + PlayerStats.Instance.GetCurrentLevel());
     }
 }
 public enum Type { HANDS=0, MELEE=10, PISTOL=3, RIFFLE=6, SNIPER=8 }

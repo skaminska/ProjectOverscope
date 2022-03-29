@@ -17,6 +17,7 @@ public class TakeLoot : MonoBehaviour
         {
             Debug.Log(GetComponent<Weapon>().weaponName);
             scrollViewContent.AddContent(GetComponent<Weapon>().weaponName);
+            InventoryController.Instance.AddToInventrory(GetComponent<Weapon>());
             //var content = Instantiate(pickedLoot);
             //content.GetComponent<TextMeshProUGUI>().text = GetComponent<Weapon>().weaponName;
             //scrollViewContent.AddContent(content);

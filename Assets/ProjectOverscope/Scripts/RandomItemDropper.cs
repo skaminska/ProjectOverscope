@@ -9,6 +9,7 @@ public class RandomItemDropper : MonoBehaviour
     public void DrawLoot()
     {
 
+
         int dropChance = Random.Range(0, 100);
         if(dropChance > 60)
         {
@@ -64,7 +65,7 @@ public class RandomItemDropper : MonoBehaviour
         int damage = (PlayerStats.Instance.GetCurrentLevel() * (int)weaponClass)*(int)weaponType;
         string name = weaponClass + " " + weaponType;
 
-        Debug.Log(PlayerStats.Instance.GetCurrentLevel());
+        //Debug.Log(PlayerStats.Instance.GetCurrentLevel());
 
         lootWeapon.GetComponent<Weapon>().SetWeaponStats(weaponClass, weaponType, name, damage);
     }
