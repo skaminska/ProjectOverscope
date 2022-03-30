@@ -11,6 +11,15 @@ public class Weapon : MonoBehaviour
     [SerializeField] public int maxDamage;
     [SerializeField] public WeaponClass weaponClass;
 
+    public void SetWeaponStats(WeaponClass weaponClass, Type weaponType, string weaponName, int minDamage, int maxDamage)
+    {
+        this.weaponClass = weaponClass;
+        this.weaponType = weaponType;
+        this.weaponName = weaponName;
+        this.minDamage = minDamage;
+        this.maxDamage = maxDamage;
+    }
+
     public void SetWeaponStats(WeaponClass weaponClass, Type weaponType, string weaponName, int damage)
     {
         this.weaponClass = weaponClass;
@@ -21,5 +30,5 @@ public class Weapon : MonoBehaviour
         Debug.Log(this.weaponClass + " " + this.weaponType + " " + this.minDamage + "-" + this.maxDamage + "  | Level: " + PlayerStats.Instance.GetCurrentLevel());
     }
 }
-public enum Type { HANDS=0, MELEE=10, PISTOL=3, RIFFLE=6, SNIPER=8 }
+public enum Type { HANDS=0, MELEE=10, PISTOL=3, RIFLE=6, SNIPER=8 }
 public enum WeaponClass { COMMON=1, UNCOMMON=2, RARE=3, EPIC=4, LEGENDARY=5}

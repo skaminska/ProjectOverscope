@@ -28,14 +28,14 @@ public class PlayerStatsUIController : MonoBehaviour
         {
             inventory.SetActive(true);
             starterAssetsInputs.inventory = false;
-            starterAssetsInputs.cursorLocked = false;
+            starterAssetsInputs.SetCursorState(false);
             thirdPersonController.LockCameraPosition = true;
         }
         else if (starterAssetsInputs.inventory && inventory.activeInHierarchy)
         {
             inventory.SetActive(false);
             starterAssetsInputs.inventory = false;
-            starterAssetsInputs.cursorLocked = true;
+            starterAssetsInputs.SetCursorState(true);
             thirdPersonController.LockCameraPosition = false;
         }
     }

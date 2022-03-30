@@ -55,7 +55,7 @@ public class RandomItemDropper : MonoBehaviour
                 weaponType = Type.PISTOL;
                 break;
             case 2:
-                weaponType = Type.RIFFLE;
+                weaponType = Type.RIFLE;
                 break;
             case 3:
                 weaponType = Type.SNIPER;

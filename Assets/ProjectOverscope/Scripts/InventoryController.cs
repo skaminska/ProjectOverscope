@@ -17,6 +17,8 @@ public class InventoryController : Singleton<InventoryController>
     {
         GameObject newItem = Instantiate(itemPrefab, transform);
         newItem.GetComponentInChildren<TextMeshProUGUI>().text = weapon.weaponName;
+        newItem.AddComponent(typeof(Weapon));
+        newItem.GetComponent<Weapon>().SetWeaponStats(weapon.weaponClass, weapon.weaponType, weapon.weaponName, weapon.minDamage, weapon.maxDamage);
         itemsList.Add(newItem);
     }
 }

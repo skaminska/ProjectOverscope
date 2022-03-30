@@ -4,16 +4,18 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class WeaponController : MonoBehaviour
+public class WeaponController : Singleton<WeaponController>
 {
     [SerializeField] List<Weapon> equipedWeapons;
-    [SerializeField] TextMeshProUGUI weaponInfo; 
+    [SerializeField] TextMeshProUGUI weaponInfo;
+    [SerializeField] List<TextMeshProUGUI> weapons;
 
     int currentWeapon;
 
     private void Start()
     {
         currentWeapon = 0;
+        ShowEquipedWeapons();
     }
 
     public Type GetCurrentWeaponType()
@@ -38,6 +40,20 @@ public class WeaponController : MonoBehaviour
                 currentWeapon--;
         }
         SetWeapon();
+    }
+
+    public void ChangeWeapon(Weapon newWeapon)
+    {
+        InventoryController.Instance.AddToInventrory(equipedWeapons[1]);
+        equipedWeapons[1] = newWeapon;
+
+        ShowEquipedWeapons();
+    }
+
+    public void ShowEquipedWeapons()
+    {
+        weapons[0].text = equipedWeapons[1].weaponName;
+        weapons[1].text = equipedWeapons[2].weaponName;
     }
 
     private void SetWeapon()
