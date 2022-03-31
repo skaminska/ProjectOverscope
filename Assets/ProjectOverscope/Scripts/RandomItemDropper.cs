@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class RandomItemDropper : MonoBehaviour
@@ -21,7 +22,6 @@ public class RandomItemDropper : MonoBehaviour
             else
             {
                 DropWeapon();
-                Instantiate(lootWeapon, transform.position, Quaternion.identity);
             }
         }
         //Instantiate(loot, transform.position, Quaternion.identity);
@@ -66,7 +66,11 @@ public class RandomItemDropper : MonoBehaviour
         string name = weaponClass + " " + weaponType;
 
         //Debug.Log(PlayerStats.Instance.GetCurrentLevel());
-
-        lootWeapon.GetComponent<Weapon>().SetWeaponStats(weaponClass, weaponType, name, damage);
+        Weapon newWeapon = ScriptableObject.CreateInstance<Weapon>();
+        newWeapon.SetWeaponStats(weaponClass, weaponType, name, damage);
+        AssetDatabase.CreateAsset(newWeapon, "Assets/Items/Weapons/" + newWeapon.weaponName + ".asset");
+        var loot = Instantiate(lootWeapon, transform.position, Quaternion.identity);
+        loot.GetComponent<TakeLoot>().SetWeapon(newWeapon);
+        //lootWeapon.GetComponent<Weapon>().SetWeaponStats();
     }
 }

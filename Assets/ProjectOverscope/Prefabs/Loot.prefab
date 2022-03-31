@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4538671796500374812}
   - component: {fileID: 2611804317075439823}
   - component: {fileID: 7238469867127351721}
-  - component: {fileID: -5316393562707820990}
   - component: {fileID: 8542617326087176157}
   - component: {fileID: 6106263707645046525}
   m_Layer: 0
@@ -84,23 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-5316393562707820990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104256240604941099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c55ae90226b01f24992390056cd63828, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponType: 3
-  weaponName: COMMON PISTOL
-  minDamage: 3
-  maxDamage: 3
-  weaponClass: 1
 --- !u!135 &8542617326087176157
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -126,5 +108,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd4264fe2c5e914fb6c88d0ba1cd32d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
   scrollViewContent: {fileID: 868672858439834114, guid: 3cc0af37ad2d9bf46b0ee919dbe7a334, type: 3}
-  display: {fileID: 0}

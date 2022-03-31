@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+[CreateAssetMenu(menuName = "Weapons")]
+public class Weapon : ScriptableObject
 {
     [SerializeField] public Type weaponType;
     [SerializeField] public string weaponName;

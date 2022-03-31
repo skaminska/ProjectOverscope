@@ -52,6 +52,7 @@ public class WeaponController : Singleton<WeaponController>
 
     public void ShowEquipedWeapons()
     {
+        
         weapons[0].text = equipedWeapons[1].weaponName;
         weapons[1].text = equipedWeapons[2].weaponName;
     }

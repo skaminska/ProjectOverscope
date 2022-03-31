@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class InventoryUIController : MonoBehaviour
 {
-    Weapon weapon;
+    [SerializeField] Weapon weapon;
     private void Start()
     {
-        weapon = GetComponentInChildren<Weapon>();
+        //weapon = GetComponentInChildren<Weapon>();
     }
 
     public void OnInventoryWeaponClick()
     {
         WeaponController.Instance.ChangeWeapon(weapon);
         Destroy(gameObject);
+    }
+
+    public void SetWeapon(Weapon weapon)
+    {
+        this.weapon = weapon;
     }
 }
