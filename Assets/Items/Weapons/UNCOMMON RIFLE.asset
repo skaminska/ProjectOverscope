@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55ae90226b01f24992390056cd63828, type: 3}
   m_Name: UNCOMMON RIFLE
   m_EditorClassIdentifier: 
+  itemType: 0
+  itemName: UNCOMMON RIFLE
   weaponType: 6
-  weaponName: UNCOMMON RIFLE
-  minDamage: 22
-  maxDamage: 26
+  minDamage: 11
+  maxDamage: 13
   weaponClass: 2

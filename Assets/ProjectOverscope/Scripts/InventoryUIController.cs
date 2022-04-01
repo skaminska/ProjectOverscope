@@ -1,23 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InventoryUIController : MonoBehaviour
 {
-    [SerializeField] Weapon weapon;
+    [SerializeField] Item item;
+    [SerializeField] GameObject inventory;
+
     private void Start()
     {
-        //weapon = GetComponentInChildren<Weapon>();
+        GetComponentInChildren<TextMeshProUGUI>().text = item.itemName;
     }
 
-    public void OnInventoryWeaponClick()
+    public void OnEquipmentItemClick()
     {
-        WeaponController.Instance.ChangeWeapon(weapon);
-        Destroy(gameObject);
+        Debug.Log(item);
+        inventory.SetActive(true);
+        InventoryController.Instance.ChangeItem(this);
     }
 
-    public void SetWeapon(Weapon weapon)
+    public ItemType GetItemType()
     {
-        this.weapon = weapon;
+        return item.itemType;
     }
+
+    public void SetItem(Item item)
+    {
+        this.item = item;
+        GetComponentInChildren<TextMeshProUGUI>().text = item.itemName;
+    }
+
+    public Item GetItem()
+    {
+        return item;
+    }
+
+    
+
 }

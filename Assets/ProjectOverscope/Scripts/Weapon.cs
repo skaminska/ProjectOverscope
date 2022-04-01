@@ -2,32 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Weapons")]
-public class Weapon : ScriptableObject
+[CreateAssetMenu(menuName = "Items/Weapons")]
+public class Weapon : Item
 {
     [SerializeField] public Type weaponType;
-    [SerializeField] public string weaponName;
+    //[SerializeField] public string weaponName;
     //[SerializeField] public int damage;
     [SerializeField] public int minDamage;
     [SerializeField] public int maxDamage;
     [SerializeField] public WeaponClass weaponClass;
 
-    public void SetWeaponStats(WeaponClass weaponClass, Type weaponType, string weaponName, int minDamage, int maxDamage)
-    {
-        this.weaponClass = weaponClass;
-        this.weaponType = weaponType;
-        this.weaponName = weaponName;
-        this.minDamage = minDamage;
-        this.maxDamage = maxDamage;
-    }
-
     public void SetWeaponStats(WeaponClass weaponClass, Type weaponType, string weaponName, int damage)
     {
         this.weaponClass = weaponClass;
         this.weaponType = weaponType;
-        this.weaponName = weaponName;
+        this.itemName = weaponName;
         this.minDamage = damage - (int)(0.1 * damage);
         this.maxDamage = damage + (int)(0.1 * damage);
+        this.itemType = ItemType.WEAPON;
         Debug.Log(this.weaponClass + " " + this.weaponType + " " + this.minDamage + "-" + this.maxDamage + "  | Level: " + PlayerStats.Instance.GetCurrentLevel());
     }
 }

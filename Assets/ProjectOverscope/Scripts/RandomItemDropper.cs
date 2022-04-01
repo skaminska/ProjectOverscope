@@ -22,6 +22,7 @@ public class RandomItemDropper : MonoBehaviour
             else
             {
                 DropWeapon();
+
             }
         }
         //Instantiate(loot, transform.position, Quaternion.identity);
@@ -45,7 +46,7 @@ public class RandomItemDropper : MonoBehaviour
         else if (rarityPossibility == 99)
             weaponClass = WeaponClass.LEGENDARY;
 
-        int typePosibility = Random.Range(0, 3);
+        int typePosibility = Random.Range(0, 4);
         switch (typePosibility)
         {
             case 0:
@@ -68,7 +69,7 @@ public class RandomItemDropper : MonoBehaviour
         //Debug.Log(PlayerStats.Instance.GetCurrentLevel());
         Weapon newWeapon = ScriptableObject.CreateInstance<Weapon>();
         newWeapon.SetWeaponStats(weaponClass, weaponType, name, damage);
-        AssetDatabase.CreateAsset(newWeapon, "Assets/Items/Weapons/" + newWeapon.weaponName + ".asset");
+        AssetDatabase.CreateAsset(newWeapon, "Assets/Items/Weapons/" + newWeapon.itemName + ".asset");
         var loot = Instantiate(lootWeapon, transform.position, Quaternion.identity);
         loot.GetComponent<TakeLoot>().SetWeapon(newWeapon);
         //lootWeapon.GetComponent<Weapon>().SetWeaponStats();

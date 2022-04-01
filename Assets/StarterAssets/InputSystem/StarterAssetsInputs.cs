@@ -15,7 +15,7 @@ namespace StarterAssets
 		public bool aim;
 		public bool atack;
 		public Vector2 changeWeapon;
-		public bool inventory;
+		public bool equipment;
 		public bool interact;
 
 		[Header("Movement Settings")]
@@ -108,7 +108,7 @@ namespace StarterAssets
 		}
 		public void InventoryInput(bool newInventory)
 		{
-			inventory = newInventory;
+			equipment = newInventory;
 		}
 		public void InteractInput(bool newInteractState)
 		{

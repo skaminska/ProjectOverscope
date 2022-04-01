@@ -52,14 +52,13 @@ public class WeaponController : Singleton<WeaponController>
 
     public void ShowEquipedWeapons()
     {
-        
-        weapons[0].text = equipedWeapons[1].weaponName;
-        weapons[1].text = equipedWeapons[2].weaponName;
+        weapons[0].text = equipedWeapons[1].itemName;
+        weapons[1].text = equipedWeapons[2].itemName;
     }
 
     private void SetWeapon()
     {
-        weaponInfo.text = equipedWeapons[currentWeapon].weaponName;
+        weaponInfo.text = equipedWeapons[currentWeapon].itemName;
         PlayerStats.Instance.SetCurrentDamage(equipedWeapons[currentWeapon].minDamage, equipedWeapons[currentWeapon].maxDamage);
     }
 }

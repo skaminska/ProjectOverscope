@@ -34,7 +34,7 @@ public class PlayerCameraController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         Vector3 mouseWorldPosition = Vector3.zero;
 

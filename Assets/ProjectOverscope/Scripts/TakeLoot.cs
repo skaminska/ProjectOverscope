@@ -7,22 +7,14 @@ using UnityEngine.UIElements;
 
 public class TakeLoot : MonoBehaviour
 {
-    //[SerializeField] GameObject pickedLoot;
-    [SerializeField] Weapon weapon;
+    [SerializeField] Item item;
     [SerializeField] AddContenToScrollView scrollViewContent;
-    //[SerializeField] InstancePickItemDisplayer display;
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("test");
         if (other.tag == "Player" && StarterAssetsInputs.Instance.interact) 
         {
-            //Debug.Log(GetComponent<Weapon>().weaponName);
-            scrollViewContent.AddContent(weapon.weaponName);
-            InventoryController.Instance.AddToInventrory(weapon);
-            //var content = Instantiate(pickedLoot);
-            //content.GetComponent<TextMeshProUGUI>().text = GetComponent<Weapon>().weaponName;
-            //scrollViewContent.AddContent(content);
-            //content.transform.SetParent(scrollViewContent.GetTransform());
+            scrollViewContent.AddContent(item.itemName);
+            InventoryController.Instance.AddToInventrory(item);
             StarterAssetsInputs.Instance.interact = false;
             Destroy(gameObject);
         }
@@ -30,6 +22,6 @@ public class TakeLoot : MonoBehaviour
 
     public void SetWeapon(Weapon weapon)
     {
-        this.weapon = weapon;
+        this.item = weapon;
     }
 }

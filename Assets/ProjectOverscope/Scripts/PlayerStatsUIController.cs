@@ -10,6 +10,7 @@ public class PlayerStatsUIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI level;
     [SerializeField] Slider expSlider;
+    [SerializeField] GameObject equipment;
     [SerializeField] GameObject inventory;
 
     StarterAssetsInputs starterAssetsInputs;
@@ -17,6 +18,7 @@ public class PlayerStatsUIController : MonoBehaviour
 
     private void Start()
     {
+        equipment.SetActive(false);
         inventory.SetActive(false);
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
         thirdPersonController = GetComponent<ThirdPersonController>();
@@ -24,17 +26,18 @@ public class PlayerStatsUIController : MonoBehaviour
 
     private void Update()
     {
-        if (starterAssetsInputs.inventory && !inventory.activeInHierarchy)
+        if (starterAssetsInputs.equipment && !equipment.activeInHierarchy)
         {
-            inventory.SetActive(true);
-            starterAssetsInputs.inventory = false;
+            equipment.SetActive(true);
+            starterAssetsInputs.equipment = false;
             starterAssetsInputs.SetCursorState(false);
             thirdPersonController.LockCameraPosition = true;
         }
-        else if (starterAssetsInputs.inventory && inventory.activeInHierarchy)
+        else if (starterAssetsInputs.equipment && equipment.activeInHierarchy)
         {
+            equipment.SetActive(false);
             inventory.SetActive(false);
-            starterAssetsInputs.inventory = false;
+            starterAssetsInputs.equipment = false;
             starterAssetsInputs.SetCursorState(true);
             thirdPersonController.LockCameraPosition = false;
         }
