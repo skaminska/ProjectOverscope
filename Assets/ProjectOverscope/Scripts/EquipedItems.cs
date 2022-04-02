@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class EquipedItems : MonoBehaviour
+public class EquipedItems : Singleton<EquipedItems>
 {
-    [SerializeField] List<GameObject> equipmentSlots;
+    [SerializeField] List<InventoryUIController> equipmentSlots;
+    [SerializeField] WeaponController weaponController;
 
+    public void UpdateEquipedElements()
+    {
+        weaponController.ChangeWeapon((Weapon)equipmentSlots[0].GetItem(), (Weapon)equipmentSlots[1].GetItem());
+    }
 }

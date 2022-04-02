@@ -15,7 +15,6 @@ public class InventoryUIController : MonoBehaviour
 
     public void OnEquipmentItemClick()
     {
-        Debug.Log(item);
         inventory.SetActive(true);
         InventoryController.Instance.ChangeItem(this);
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -11,21 +12,33 @@ public class RandomItemDropper : MonoBehaviour
     {
 
 
-        int dropChance = Random.Range(0, 100);
-        if(dropChance > 60)
+        int dropChance = UnityEngine.Random.Range(0, 100);
+        if(dropChance > 0)
         {
-            int whatToDrop = Random.Range(0, 100);
-            if (whatToDrop < 60)
+            int whatToDrop = UnityEngine.Random.Range(0, 100);
+            if (whatToDrop < 0)
             {
-                PlayerStats.Instance.AddMoney(Random.Range(5,10));
+                PlayerStats.Instance.AddMoney(UnityEngine.Random.Range(5, 10));
+            }
+            else if (whatToDrop < 50)
+            {
+                DropWeapon();
             }
             else
             {
-                DropWeapon();
-
+                DropArmor();
             }
         }
         //Instantiate(loot, transform.position, Quaternion.identity);
+    }
+
+    private void DropArmor()
+    {
+        Armor newArmor = ScriptableObject.CreateInstance<Armor>();
+        newArmor.SetStats();
+        AssetDatabase.CreateAsset(newArmor, "Assets/Items/Armors/" + newArmor.itemName + ".asset");
+        var loot = Instantiate(lootWeapon, transform.position, Quaternion.identity);
+        loot.GetComponent<TakeLoot>().SetItem(newArmor);
     }
 
     private void DropWeapon()
@@ -34,7 +47,7 @@ public class RandomItemDropper : MonoBehaviour
         Type weaponType = Type.MELEE;
 
 
-        int rarityPossibility = Random.Range(0, 100);
+        int rarityPossibility = UnityEngine.Random.Range(0, 100);
         if (rarityPossibility < 65)
             weaponClass = WeaponClass.COMMON;
         else if (rarityPossibility < 85)
@@ -46,7 +59,7 @@ public class RandomItemDropper : MonoBehaviour
         else if (rarityPossibility == 99)
             weaponClass = WeaponClass.LEGENDARY;
 
-        int typePosibility = Random.Range(0, 4);
+        int typePosibility = UnityEngine.Random.Range(0, 4);
         switch (typePosibility)
         {
             case 0:
@@ -71,7 +84,7 @@ public class RandomItemDropper : MonoBehaviour
         newWeapon.SetWeaponStats(weaponClass, weaponType, name, damage);
         AssetDatabase.CreateAsset(newWeapon, "Assets/Items/Weapons/" + newWeapon.itemName + ".asset");
         var loot = Instantiate(lootWeapon, transform.position, Quaternion.identity);
-        loot.GetComponent<TakeLoot>().SetWeapon(newWeapon);
+        loot.GetComponent<TakeLoot>().SetItem(newWeapon);
         //lootWeapon.GetComponent<Weapon>().SetWeaponStats();
     }
 }

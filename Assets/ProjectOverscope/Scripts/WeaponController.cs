@@ -42,10 +42,10 @@ public class WeaponController : Singleton<WeaponController>
         SetWeapon();
     }
 
-    public void ChangeWeapon(Weapon newWeapon)
+    public void ChangeWeapon(Weapon weapon1, Weapon weapon2)
     {
-        InventoryController.Instance.AddToInventrory(equipedWeapons[1]);
-        equipedWeapons[1] = newWeapon;
+        equipedWeapons[1] = weapon1;
+        equipedWeapons[2] = weapon2;
 
         ShowEquipedWeapons();
     }

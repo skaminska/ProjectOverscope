@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c55ae90226b01f24992390056cd63828, type: 3}
-  m_Name: Hands
+  m_Script: {fileID: 11500000, guid: 995925bf1f9b53147a40e5868dc035f6, type: 3}
+  m_Name: newArmor2,667549
   m_EditorClassIdentifier: 
-  itemType: 0
-  itemName: Hands
-  weaponType: 0
-  minDamage: 0
-  maxDamage: 0
-  weaponClass: 1
+  itemType: 1
+  itemName: newArmor2,667549

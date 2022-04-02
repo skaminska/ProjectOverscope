@@ -2140,6 +2140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 858691234}
+  - component: {fileID: 858691235}
   m_Layer: 5
   m_Name: Equipment
   m_TagString: Untagged
@@ -2167,6 +2168,22 @@ RectTransform:
   m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &858691235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858691233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e58b63145b66fd646af42c8e7230d71b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentSlots:
+  - {fileID: 1623778025}
+  - {fileID: 1365981511}
+  weaponController: {fileID: 974238577569630963}
 --- !u!4 &907938691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 413734, guid: 84c719d9545655049b535e2613281b11, type: 3}
@@ -3319,6 +3336,17 @@ PrefabInstance:
     - {fileID: 64552291686847290, guid: c828aad58e045884d9bcabfcdacc69fa, type: 3}
     - {fileID: 64871132166073584, guid: c828aad58e045884d9bcabfcdacc69fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c828aad58e045884d9bcabfcdacc69fa, type: 3}
+--- !u!114 &1365981511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7931926760755588878, guid: 27b82be6927c1624ab74485d91465525, type: 3}
+  m_PrefabInstance: {fileID: 1818182714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66009c4c244d1d448935c9d43d2547ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1382772101 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 454240, guid: c828aad58e045884d9bcabfcdacc69fa, type: 3}
@@ -6650,6 +6678,17 @@ PrefabInstance:
     - {fileID: 64552291686847290, guid: c828aad58e045884d9bcabfcdacc69fa, type: 3}
     - {fileID: 64871132166073584, guid: c828aad58e045884d9bcabfcdacc69fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c828aad58e045884d9bcabfcdacc69fa, type: 3}
+--- !u!114 &1623778025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7931926760755588878, guid: 27b82be6927c1624ab74485d91465525, type: 3}
+  m_PrefabInstance: {fileID: 940036544}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66009c4c244d1d448935c9d43d2547ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1634867384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 430828, guid: ade248290e90bae40b4a349101c343c8, type: 3}

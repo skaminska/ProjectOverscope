@@ -20,8 +20,8 @@ public class TakeLoot : MonoBehaviour
         }
     }
 
-    public void SetWeapon(Weapon weapon)
+    public void SetItem(Item item)
     {
-        this.item = weapon;
+        this.item = item;
     }
 }

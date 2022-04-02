@@ -19,7 +19,6 @@ public class InventoryController : Singleton<InventoryController>
     public void ChangeItem(InventoryUIController itemToChangeController)//Item itemToChange)
     {
         ShowItemOfType(itemToChangeController);
-
     }
 
     public void ShowItemOfType(InventoryUIController itemToChangeController)
@@ -33,6 +32,7 @@ public class InventoryController : Singleton<InventoryController>
             else
             {
                 element.SetActive(true);
+                element.GetComponent<Button>().onClick.RemoveAllListeners();
                 element.GetComponent<Button>().onClick.AddListener(() => Test(itemToChangeController, element.GetComponent<InventoryUIController>()));
             }
         }
@@ -40,12 +40,13 @@ public class InventoryController : Singleton<InventoryController>
 
     void Test(InventoryUIController itemToChange, InventoryUIController controller)
     {
-        //Debug.Log(itemToChange.GetItem() + " -> item to changeg");
-        //Debug.Log(controller.GetItem() + " -> new Item");
+        //Debug.Log(itemToChange.GetItem() + " -> item to change   ===> " + controller.GetItem() + " -> new Item");
 
         var tmp = itemToChange.GetItem();
         itemToChange.SetItem(controller.GetItem());
         controller.SetItem(tmp);
-        
+
+        itemToChange.OnEquipmentItemClick();
+        EquipedItems.Instance.UpdateEquipedElements();
     }
 }

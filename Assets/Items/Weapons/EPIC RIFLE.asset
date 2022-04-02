@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55ae90226b01f24992390056cd63828, type: 3}
   m_Name: EPIC RIFLE
   m_EditorClassIdentifier: 
-  type: 0
+  itemType: 0
+  itemName: EPIC RIFLE
   weaponType: 6
-  weaponName: EPIC RIFLE
-  minDamage: 65
-  maxDamage: 79
+  minDamage: 22
+  maxDamage: 26
   weaponClass: 4

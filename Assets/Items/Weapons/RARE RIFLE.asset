@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55ae90226b01f24992390056cd63828, type: 3}
   m_Name: RARE RIFLE
   m_EditorClassIdentifier: 
-  type: 0
+  itemType: 0
   itemName: RARE RIFLE
   weaponType: 6
-  minDamage: 17
-  maxDamage: 19
+  minDamage: 33
+  maxDamage: 39
   weaponClass: 3
