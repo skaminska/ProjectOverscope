@@ -17,6 +17,7 @@ namespace StarterAssets
 		public Vector2 changeWeapon;
 		public bool equipment;
 		public bool interact;
+		public bool quests;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -70,6 +71,10 @@ namespace StarterAssets
 		{
 			InteractInput(value.isPressed);
 		}
+		public void OnQuests(InputValue value)
+		{
+			QuestsInput(value.isPressed);
+		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -113,6 +118,10 @@ namespace StarterAssets
 		public void InteractInput(bool newInteractState)
 		{
 			interact = newInteractState;
+		}
+		public void QuestsInput(bool newQuestState)
+		{
+			quests = newQuestState;
 		}
 
 #if !UNITY_IOS || !UNITY_ANDROID

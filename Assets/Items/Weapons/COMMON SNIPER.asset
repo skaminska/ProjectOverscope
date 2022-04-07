@@ -15,6 +15,6 @@ MonoBehaviour:
   itemType: 0
   itemName: COMMON SNIPER
   weaponType: 8
-  minDamage: 15
-  maxDamage: 17
+  minDamage: 8
+  maxDamage: 8
   weaponClass: 1

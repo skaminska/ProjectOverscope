@@ -15,6 +15,6 @@ MonoBehaviour:
   itemType: 0
   itemName: COMMON PISTOL
   weaponType: 3
-  minDamage: 9
-  maxDamage: 9
+  minDamage: 3
+  maxDamage: 3
   weaponClass: 1

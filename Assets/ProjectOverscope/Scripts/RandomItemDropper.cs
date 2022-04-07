@@ -79,12 +79,10 @@ public class RandomItemDropper : MonoBehaviour
         int damage = (PlayerStats.Instance.GetCurrentLevel() * (int)weaponClass)*(int)weaponType;
         string name = weaponClass + " " + weaponType;
 
-        //Debug.Log(PlayerStats.Instance.GetCurrentLevel());
         Weapon newWeapon = ScriptableObject.CreateInstance<Weapon>();
         newWeapon.SetWeaponStats(weaponClass, weaponType, name, damage);
         AssetDatabase.CreateAsset(newWeapon, "Assets/Items/Weapons/" + newWeapon.itemName + ".asset");
         var loot = Instantiate(lootWeapon, transform.position, Quaternion.identity);
         loot.GetComponent<TakeLoot>().SetItem(newWeapon);
-        //lootWeapon.GetComponent<Weapon>().SetWeaponStats();
     }
 }

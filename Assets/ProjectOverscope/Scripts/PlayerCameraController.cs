@@ -23,7 +23,6 @@ public class PlayerCameraController : MonoBehaviour
     WeaponController weaponController;
     //bool weaponEquiped;
 
-    // Start is called before the first frame update
     void Awake()
     {
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
@@ -33,7 +32,6 @@ public class PlayerCameraController : MonoBehaviour
         //weaponEquiped = true;
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
         Vector3 mouseWorldPosition = Vector3.zero;
@@ -94,6 +92,19 @@ public class PlayerCameraController : MonoBehaviour
                     Shoot(hitedObj, hitTransform);
                     break;
             }            
+        }
+
+        if (starterAssetsInputs.interact) 
+        {
+            starterAssetsInputs.interact = false;
+            Collider[] objects = Physics.OverlapSphere(transform.position, 2f);
+            foreach(var obj in objects){
+                if (obj.GetComponent<IInteractible>() != null)
+                {
+                    obj.GetComponent<IInteractible>().Interact();
+                }
+            }
+
         }
     }
 

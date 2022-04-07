@@ -13,12 +13,10 @@ public class NPCMovement : NPCStats
     {
         agent = GetComponent<NavMeshAgent>();
     }
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
 
         transform.LookAt(destination.position);
-        //transform.position = Vector3.MoveTowards(transform.position, destination.position, speed * Time.deltaTime);
         if(Vector3.Distance(transform.position, destination.position) < 1.0f)
         {
             //agent.enabled = false;

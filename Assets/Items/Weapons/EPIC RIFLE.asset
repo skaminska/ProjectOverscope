@@ -15,6 +15,6 @@ MonoBehaviour:
   itemType: 0
   itemName: EPIC RIFLE
   weaponType: 6
-  minDamage: 22
-  maxDamage: 26
+  minDamage: 44
+  maxDamage: 52
   weaponClass: 4

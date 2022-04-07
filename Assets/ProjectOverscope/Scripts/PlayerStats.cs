@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class PlayerStats : Singleton<PlayerStats>
 {
     PlayerStatsUIController playerStatsUIController;
@@ -18,6 +19,8 @@ public class PlayerStats : Singleton<PlayerStats>
     int nextLevelRequirements;
     int money;
 
+    List<Quest> collectedQuests;
+
     private void Start()
     {
         maxHealth = 10;
@@ -31,6 +34,7 @@ public class PlayerStats : Singleton<PlayerStats>
         nextLevelRequirements = 5;
         playerStatsUIController = GetComponent<PlayerStatsUIController>();
         playerStatsUIController.InitialSettings(currentLevel, nextLevelRequirements);
+        collectedQuests = new List<Quest>();
     }
 
     internal void AddMoney(int money)
@@ -71,5 +75,10 @@ public class PlayerStats : Singleton<PlayerStats>
     public int GetCurrentLevel()
     {
         return currentLevel;
+    }
+
+    public void CollectQuest(Quest quest)
+    {
+        collectedQuests.Add(quest);
     }
 }

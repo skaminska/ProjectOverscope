@@ -15,6 +15,6 @@ MonoBehaviour:
   itemType: 0
   itemName: COMMON RIFLE
   weaponType: 6
-  minDamage: 17
-  maxDamage: 19
+  minDamage: 11
+  maxDamage: 13
   weaponClass: 1

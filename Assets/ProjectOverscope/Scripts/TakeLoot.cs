@@ -5,19 +5,16 @@ using StarterAssets;
 using TMPro;
 using UnityEngine.UIElements;
 
-public class TakeLoot : MonoBehaviour
+public class TakeLoot : MonoBehaviour, IInteractible
 {
     [SerializeField] Item item;
     [SerializeField] AddContenToScrollView scrollViewContent;
-    private void OnTriggerEnter(Collider other)
+
+    public void Interact()
     {
-        if (other.tag == "Player" && StarterAssetsInputs.Instance.interact) 
-        {
-            scrollViewContent.AddContent(item.itemName);
-            InventoryController.Instance.AddToInventrory(item);
-            StarterAssetsInputs.Instance.interact = false;
-            Destroy(gameObject);
-        }
+        scrollViewContent.AddContent(item.itemName);
+        InventoryController.Instance.AddToInventrory(item);
+        Destroy(gameObject);
     }
 
     public void SetItem(Item item)
