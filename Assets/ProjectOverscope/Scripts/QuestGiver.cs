@@ -8,7 +8,7 @@ public class QuestGiver : MonoBehaviour, IInteractible
     [SerializeField] GameObject interactionInfo;
     [SerializeField] GameObject availableQuest;
     [SerializeField] QuestWindow questWindow;
-    bool haveActiveQuest;
+    bool haveInteractionActive;
 
 
     private void Start()
@@ -21,7 +21,7 @@ public class QuestGiver : MonoBehaviour, IInteractible
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player" && haveActiveQuest)
+        if(other.gameObject.tag == "Player" && haveInteractionActive)
         {
             interactionInfo.SetActive(true);
             interactionInfo.transform.LookAt(2 * transform.position - Camera.main.transform.position);
@@ -38,10 +38,20 @@ public class QuestGiver : MonoBehaviour, IInteractible
 
     public void Interact()
     {
-        if (haveActiveQuest)
+        if (quests[0].GetQuestStatus() == QuestStatus.AVAILABLE && haveInteractionActive)
         {
             Debug.Log("Hello adventurer!");
             questWindow.ShowQuestInfo(quests[0], this);
+            interactionInfo.SetActive(false);
+        }
+        else if(quests[0].GetQuestStatus() == QuestStatus.COMPLETED)
+        {
+            quests[0].SetQuestStatus(QuestStatus.FINISHED);
+            quests[0].GiveRewardToPlayer();
+            quests.Remove(quests[0]);
+            availableQuest.SetActive(false);
+            interactionInfo.SetActive(false);
+            haveInteractionActive = false;
         }
 
     }
@@ -51,12 +61,20 @@ public class QuestGiver : MonoBehaviour, IInteractible
         if (quests[0].GetQuestStatus() == QuestStatus.AVAILABLE)
         {
             availableQuest.SetActive(true);
-            haveActiveQuest = true;
+            haveInteractionActive = true;
+            quests[0].SetQuestGiver(this);
         }
         else
         {
             availableQuest.SetActive(false);
-            haveActiveQuest = false;
+            haveInteractionActive = false;
         }
+    }
+
+    public void QuestCompleted()
+    {
+        Debug.Log("Hey. Come here!");
+        availableQuest.SetActive(true);
+        haveInteractionActive = true;
     }
 }

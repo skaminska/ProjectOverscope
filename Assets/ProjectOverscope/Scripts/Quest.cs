@@ -14,6 +14,13 @@ public class Quest : ScriptableObject
     [SerializeField] List<Quest> questRequirements;
     [SerializeField] QuestStatus questStatus;
 
+    [SerializeField] QuestGiver questGiver;
+
+    public void SetQuestGiver(QuestGiver questGiver)
+    {
+        this.questGiver = questGiver; 
+    }
+
     public QuestStatus GetQuestStatus()
     {
         return questStatus;
@@ -30,9 +37,19 @@ public class Quest : ScriptableObject
     {
         return "Money: " + questRewardMoney + "     XP: " + questRewardXP + "       Item: " + questRewardItem.itemName ;
     }
+
+    public void GiveRewardToPlayer()
+    {
+        PlayerStats.Instance.AddExperiencePoint(questRewardXP);
+    }
+
     public void SetQuestStatus(QuestStatus newQuestStatus)
     {
         questStatus = newQuestStatus;
+        if(questStatus == QuestStatus.COMPLETED)
+        {
+            questGiver.QuestCompleted();
+        }
     }
 }
 
