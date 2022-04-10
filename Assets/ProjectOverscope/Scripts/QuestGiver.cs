@@ -16,7 +16,10 @@ public class QuestGiver : MonoBehaviour, IInteractible
         questWindow = FindObjectOfType<QuestWindow>();
         interactionInfo.SetActive(false);
         CheckIfQuestAvailable();
-
+        foreach(var quest in quests)
+        {
+            quest.SetQuestGiver(this);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

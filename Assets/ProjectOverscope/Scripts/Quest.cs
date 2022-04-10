@@ -10,8 +10,8 @@ public class Quest : ScriptableObject
     [SerializeField] int questRewardXP;
     [SerializeField] int questRewardMoney;
     [SerializeField] Item questRewardItem;
-    //List of quest that must be FINISHED in order to unlock this Quest
-    [SerializeField] List<Quest> questRequirements;
+    [SerializeField] QuestRequirements questRequirements;
+    [SerializeField] Quest nextQuest;
     [SerializeField] QuestStatus questStatus;
 
     [SerializeField] QuestGiver questGiver;
@@ -46,9 +46,20 @@ public class Quest : ScriptableObject
     public void SetQuestStatus(QuestStatus newQuestStatus)
     {
         questStatus = newQuestStatus;
-        if(questStatus == QuestStatus.COMPLETED)
+        switch (questStatus)
         {
-            questGiver.QuestCompleted();
+            case QuestStatus.AVAILABLE:
+                questGiver.CheckIfQuestAvailable();
+                break;
+            case QuestStatus.COMPLETED:
+                questGiver.QuestCompleted();
+                break;
+            case QuestStatus.FINISHED:
+                if(nextQuest!=null)
+                    nextQuest.SetQuestStatus(QuestStatus.AVAILABLE);
+                break;
+            default:
+                break;
         }
     }
 }

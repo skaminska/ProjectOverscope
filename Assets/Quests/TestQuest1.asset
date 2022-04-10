@@ -18,4 +18,6 @@ MonoBehaviour:
   questRewardMoney: 10
   questRewardItem: {fileID: 11400000, guid: 242d5613fef82824783c4f7e5de21994, type: 2}
   questRequirements: []
-  questStatus: 0
+  nextQuest: {fileID: 11400000, guid: a8ecd0514358396418b3f2dcf86ae04c, type: 2}
+  questStatus: 1
+  questGiver: {fileID: 0}
