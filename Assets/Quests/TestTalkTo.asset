@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c55ae90226b01f24992390056cd63828, type: 3}
-  m_Name: UNCOMMON PISTOL
+  m_Script: {fileID: 11500000, guid: 40ec42082ff31ff4095b29a960ecfaf7, type: 3}
+  m_Name: TestTalkTo
   m_EditorClassIdentifier: 
-  itemType: 0
-  itemName: UNCOMMON PISTOL
-  weaponType: 3
-  minDamage: 11
-  maxDamage: 13
-  weaponClass: 2
+  questType: 3
+  completed: 0
+  NPCs:
+  - {fileID: 11400000, guid: b0c0328db42c68e4b9dc4906f8e3a33d, type: 2}

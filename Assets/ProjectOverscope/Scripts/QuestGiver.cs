@@ -8,6 +8,7 @@ public class QuestGiver : MonoBehaviour, IInteractible
     [SerializeField] GameObject interactionInfo;
     [SerializeField] GameObject availableQuest;
     [SerializeField] QuestWindow questWindow;
+    [SerializeField] NPCInfo NPCInfo;
     bool haveInteractionActive;
 
 
@@ -20,6 +21,7 @@ public class QuestGiver : MonoBehaviour, IInteractible
         {
             quest.SetQuestGiver(this);
         }
+        NPCInfo.SetQuestGiver(this);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,37 +49,53 @@ public class QuestGiver : MonoBehaviour, IInteractible
             questWindow.ShowQuestInfo(quests[0], this);
             interactionInfo.SetActive(false);
         }
-        else if(quests[0].GetQuestStatus() == QuestStatus.COMPLETED)
+        else if (quests[0].GetQuestStatus() == QuestStatus.COMPLETED)
         {
             quests[0].SetQuestStatus(QuestStatus.FINISHED);
             quests[0].GiveRewardToPlayer();
             quests.Remove(quests[0]);
             availableQuest.SetActive(false);
-            interactionInfo.SetActive(false);
-            haveInteractionActive = false;
+            TurnOffInteractions();
         }
-
+        else if (PlayerStats.Instance.GetColletedQuests() != null)
+        {
+            foreach(var quest in PlayerStats.Instance.GetColletedQuests())
+            {
+                if(quest.GetQuestRequirements().GetQuestType() == QuestType.TALKTO)
+                {
+                    //TODO check if list contains this npc first
+                    ((QuestType_TalkTo)quest.GetQuestRequirements()).Talked(NPCInfo);
+                    quest.CheckIfQuestCompleted();
+                    TurnOffInteractions();
+                }
+            }
+        }
     }
 
     public void CheckIfQuestAvailable()
     {
         if (quests[0].GetQuestStatus() == QuestStatus.AVAILABLE)
         {
-            availableQuest.SetActive(true);
-            haveInteractionActive = true;
+            TurnOnInteractions();
             quests[0].SetQuestGiver(this);
         }
         else
         {
-            availableQuest.SetActive(false);
-            haveInteractionActive = false;
+            TurnOffInteractions();
         }
     }
 
-    public void QuestCompleted()
+    public void TurnOnInteractions()
     {
-        Debug.Log("Hey. Come here!");
+        Debug.Log("Hey you! Over there!");
         availableQuest.SetActive(true);
         haveInteractionActive = true;
+    }
+
+    public void TurnOffInteractions()
+    {
+        availableQuest.SetActive(false);
+        haveInteractionActive = false;
+        interactionInfo.SetActive(false);
     }
 }

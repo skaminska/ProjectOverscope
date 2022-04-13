@@ -32,7 +32,7 @@ public class PlayerCameraController : MonoBehaviour
         //weaponEquiped = true;
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         Vector3 mouseWorldPosition = Vector3.zero;
 

@@ -81,4 +81,8 @@ public class PlayerStats : Singleton<PlayerStats>
     {
         collectedQuests.Add(quest);
     }
+    public List<Quest> GetColletedQuests()
+    {
+        return collectedQuests;
+    }
 }

@@ -38,7 +38,7 @@ public class RandomItemDropper : MonoBehaviour
         newArmor.SetStats();
         AssetDatabase.CreateAsset(newArmor, "Assets/Items/Armors/" + newArmor.itemName + ".asset");
         var loot = Instantiate(lootWeapon, transform.position, Quaternion.identity);
-        loot.GetComponent<TakeLoot>().SetItem(newArmor);
+        loot.GetComponent<TakeItem>().SetItem(newArmor);
     }
 
     private void DropWeapon()
@@ -83,6 +83,6 @@ public class RandomItemDropper : MonoBehaviour
         newWeapon.SetWeaponStats(weaponClass, weaponType, name, damage);
         AssetDatabase.CreateAsset(newWeapon, "Assets/Items/Weapons/" + newWeapon.itemName + ".asset");
         var loot = Instantiate(lootWeapon, transform.position, Quaternion.identity);
-        loot.GetComponent<TakeLoot>().SetItem(newWeapon);
+        loot.GetComponent<TakeItem>().SetItem(newWeapon);
     }
 }

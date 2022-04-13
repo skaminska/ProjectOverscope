@@ -38,6 +38,22 @@ public class Quest : ScriptableObject
         return "Money: " + questRewardMoney + "     XP: " + questRewardXP + "       Item: " + questRewardItem.itemName ;
     }
 
+    public QuestType GetQuestType()
+    {
+        return questRequirements.GetQuestType();
+    }
+
+    public QuestRequirements GetQuestRequirements()
+    {
+        return questRequirements;
+    }
+
+    public void CheckIfQuestCompleted()
+    {
+        if (questRequirements.completed)
+            this.SetQuestStatus(QuestStatus.COMPLETED);
+    }
+
     public void GiveRewardToPlayer()
     {
         PlayerStats.Instance.AddExperiencePoint(questRewardXP);
@@ -51,8 +67,11 @@ public class Quest : ScriptableObject
             case QuestStatus.AVAILABLE:
                 questGiver.CheckIfQuestAvailable();
                 break;
+            case QuestStatus.COLLECTED:
+                questRequirements.QuestSetUp();
+                break;
             case QuestStatus.COMPLETED:
-                questGiver.QuestCompleted();
+                questGiver.TurnOnInteractions();
                 break;
             case QuestStatus.FINISHED:
                 if(nextQuest!=null)

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2089a9cba0081ff4fa9b7049989925ed, type: 3}
-  m_Name: TestQuest1
+  m_Name: TestQuestTalkTo
   m_EditorClassIdentifier: 
-  questName: Collect Loot
-  questDescription: Can you collect loot 5 times?
+  questName: Talk to this guy
+  questDescription: I want to tell him something. Go give him this message
   questRewardXP: 10
   questRewardMoney: 10
-  questRewardItem: {fileID: 11400000, guid: 242d5613fef82824783c4f7e5de21994, type: 2}
+  questRewardItem: {fileID: 11400000, guid: d39f3c101d75d6949adad65cf28e3947, type: 2}
   questRequirements: {fileID: 11400000, guid: 52476ba6e4d65814baae9fa7ce93e936, type: 2}
   nextQuest: {fileID: 11400000, guid: a8ecd0514358396418b3f2dcf86ae04c, type: 2}
-  questStatus: 0
+  questStatus: 1
   questGiver: {fileID: 0}

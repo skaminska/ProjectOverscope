@@ -15,6 +15,6 @@ MonoBehaviour:
   itemType: 0
   itemName: RARE PISTOL
   weaponType: 3
-  minDamage: 17
-  maxDamage: 19
+  minDamage: 9
+  maxDamage: 9
   weaponClass: 3
