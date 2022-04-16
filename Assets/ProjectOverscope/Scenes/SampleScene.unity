@@ -1176,6 +1176,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1359299155365456832, guid: b0d85fa4028d9954ab9561a90e97ba09, type: 3}
+      propertyPath: NPCInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: b0c0328db42c68e4b9dc4906f8e3a33d, type: 2}
+    - target: {fileID: 1359299155365456832, guid: b0d85fa4028d9954ab9561a90e97ba09, type: 3}
       propertyPath: quests.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: a8ecd0514358396418b3f2dcf86ae04c, type: 2}
@@ -11723,6 +11727,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1359299155365456832, guid: b0d85fa4028d9954ab9561a90e97ba09, type: 3}
+      propertyPath: NPCInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 0487252e0fc5aa04ba6c0461b7f0a522, type: 2}
+    - target: {fileID: 1359299155365456832, guid: b0d85fa4028d9954ab9561a90e97ba09, type: 3}
+      propertyPath: quests.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359299155365456832, guid: b0d85fa4028d9954ab9561a90e97ba09, type: 3}
+      propertyPath: quests.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: b1c9ef945e7601841ba3bdf663458da6, type: 2}
+    - target: {fileID: 1359299155365456832, guid: b0d85fa4028d9954ab9561a90e97ba09, type: 3}
+      propertyPath: quests.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e7a17568b3fdef4685e14ec8c57933b, type: 2}
     - target: {fileID: 1359299155365456834, guid: b0d85fa4028d9954ab9561a90e97ba09, type: 3}
       propertyPath: m_Name
       value: QuestGiver

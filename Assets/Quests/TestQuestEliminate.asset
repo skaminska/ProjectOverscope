@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2089a9cba0081ff4fa9b7049989925ed, type: 3}
+  m_Name: TestQuestEliminate
+  m_EditorClassIdentifier: 
+  questName: Eliminate them
+  questDescription: Can you eliminate 5 NPCs?
+  questRewardXP: 5
+  questRewardMoney: 5
+  questRewardItem: {fileID: 11400000, guid: d39f3c101d75d6949adad65cf28e3947, type: 2}
+  questRequirements: {fileID: 11400000, guid: c0584ebeff4c2044495534f85674dc9c, type: 2}
+  nextQuest: {fileID: 11400000, guid: a8ecd0514358396418b3f2dcf86ae04c, type: 2}
+  questStatus: 1
+  questGiver: {fileID: 0}

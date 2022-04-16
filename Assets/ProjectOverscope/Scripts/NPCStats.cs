@@ -23,6 +23,19 @@ public class NPCStats : MonoBehaviour
             randomItemDropper.DrawLoot();
             PlayerStats.Instance.AddExperiencePoint(NPCexpMultiplier * NPCLevel);
             BasicNPCController.Instance.AddToList(this.gameObject);
+            foreach (var quest in PlayerStats.Instance.GetColletedQuests())
+            {
+                if (quest.GetQuestType() == QuestType.ELIMINATE)
+                {
+                    if (this.gameObject.tag == ((QuestType_Eliminate)quest.GetQuestRequirements()).GetTargetToEliminateTag())
+                    {
+                        ((QuestType_Eliminate)quest.GetQuestRequirements()).TargetEliminated();
+                        quest.CheckIfQuestCompleted();
+                    }
+
+                }
+            }
+
             gameObject.SetActive(false);
         }
     }
