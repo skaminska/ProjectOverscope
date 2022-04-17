@@ -13,6 +13,10 @@ public class QuestRequirements : ScriptableObject
     }
 
     public virtual void QuestSetUp() { }
+
+    public virtual string GetQuestProgress() { return ""; }
+
+    //TODO some general function to change quest requerements values
 }
 
 public enum QuestType { COLLECT, ELIMINATE, FIND, TALKTO }

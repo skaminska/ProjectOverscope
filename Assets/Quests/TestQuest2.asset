@@ -19,5 +19,5 @@ MonoBehaviour:
   questRewardItem: {fileID: 11400000, guid: 242d5613fef82824783c4f7e5de21994, type: 2}
   questRequirements: {fileID: 11400000, guid: 975d5a5a0564f154c9f363c87c167001, type: 2}
   nextQuest: {fileID: 0}
-  questStatus: 0
+  questStatus: 1
   questGiver: {fileID: 0}

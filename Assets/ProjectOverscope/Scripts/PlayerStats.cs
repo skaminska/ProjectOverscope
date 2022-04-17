@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerStats : Singleton<PlayerStats>
 {
     PlayerStatsUIController playerStatsUIController;
+    QuestLog questLogController;
 
     int maxHealth;
     int currentHealth;
@@ -20,6 +21,8 @@ public class PlayerStats : Singleton<PlayerStats>
     int money;
 
     List<Quest> collectedQuests;
+    Quest followedQuest;
+
 
     private void Start()
     {
@@ -35,6 +38,7 @@ public class PlayerStats : Singleton<PlayerStats>
         playerStatsUIController = GetComponent<PlayerStatsUIController>();
         playerStatsUIController.InitialSettings(currentLevel, nextLevelRequirements);
         collectedQuests = new List<Quest>();
+        questLogController = FindObjectOfType<QuestLog>();
     }
 
     internal void AddMoney(int money)
@@ -70,6 +74,27 @@ public class PlayerStats : Singleton<PlayerStats>
         experiencePoints -= nextLevelRequirements;
         nextLevelRequirements = currentLevel * 5;
         playerStatsUIController.SetNewLevel(experiencePoints, nextLevelRequirements, currentLevel);
+    }
+
+    public void SetFollowedQuest(Quest quest)
+    {
+        followedQuest = quest;
+    }
+
+    public Quest GetFollowedQuest()
+    {
+        return followedQuest;
+    }
+
+    public void UpdateFollowedQuest()
+    {
+        questLogController.UpdateFollowInfo();
+    }
+
+    public void RemoveFollowedQuest()
+    {
+        questLogController.HideFollowInfo();
+        followedQuest = null;
     }
 
     public int GetCurrentLevel()

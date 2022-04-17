@@ -23,4 +23,13 @@ public class QuestType_TalkTo : QuestRequirements
             npc.GetQuestGiver().TurnOnInteractions();
         }
     }
+    public override string GetQuestProgress()
+    {
+        if (NPCs.Count > 1)
+            return "Talk to " + NPCs.Count + " people";
+        else if (NPCs.Count == 1)
+            return "Talk to " + NPCs.Count + " person";
+        else
+            return "Go back to quest giver";
+    }
 }

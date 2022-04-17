@@ -22,4 +22,12 @@ public class QuestType_Collect : QuestRequirements
             base.completed = true;
         }
     }
+
+    public override string GetQuestProgress()
+    {
+        if (currentAmount != requiredAmount)
+            return currentAmount + "/" + requiredAmount;
+        else
+            return "Go back to quest giver";
+    }
 }

@@ -50,6 +50,7 @@ public class Quest : ScriptableObject
 
     public void CheckIfQuestCompleted()
     {
+        PlayerStats.Instance.UpdateFollowedQuest();
         if (questRequirements.completed)
             this.SetQuestStatus(QuestStatus.COMPLETED);
     }
@@ -76,11 +77,14 @@ public class Quest : ScriptableObject
             case QuestStatus.FINISHED:
                 if(nextQuest!=null)
                     nextQuest.SetQuestStatus(QuestStatus.AVAILABLE);
+                if (PlayerStats.Instance.GetFollowedQuest() == this)
+                    PlayerStats.Instance.RemoveFollowedQuest();
                 break;
             default:
                 break;
         }
     }
+
 }
 
 public enum QuestStatus { HIDDEN, AVAILABLE, COLLECTED, COMPLETED, FINISHED}

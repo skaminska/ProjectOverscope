@@ -11738,7 +11738,7 @@ PrefabInstance:
     - target: {fileID: 1359299155365456832, guid: b0d85fa4028d9954ab9561a90e97ba09, type: 3}
       propertyPath: quests.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: b1c9ef945e7601841ba3bdf663458da6, type: 2}
+      objectReference: {fileID: 11400000, guid: a12139f19c6756a4eaae63cae46839b2, type: 2}
     - target: {fileID: 1359299155365456832, guid: b0d85fa4028d9954ab9561a90e97ba09, type: 3}
       propertyPath: quests.Array.data[1]
       value: 
