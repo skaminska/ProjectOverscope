@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class TakeItem : MonoBehaviour, IInteractible
 {
     [SerializeField] Item item;
-    [SerializeField] AddContenToScrollView scrollViewContent;
+    [SerializeField] AddContentToScrollView scrollViewContent;
 
     public void Interact()
     {

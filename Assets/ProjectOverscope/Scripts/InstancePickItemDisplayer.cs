@@ -14,6 +14,6 @@ public class InstancePickItemDisplayer : MonoBehaviour
     void Start()
     {
         var content = Instantiate(pickedItemDisplayer, transform);
-        pickedItemDisplayer.GetComponent<AddContenToScrollView>().parentTransform = content.transform;
+        pickedItemDisplayer.GetComponent<AddContentToScrollView>().parentTransform = content.transform;
     }
 }
