@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c55ae90226b01f24992390056cd63828, type: 3}
-  m_Name: UNCOMMON PISTOL
+  m_Name: Pistol
   m_EditorClassIdentifier: 
   itemType: 0
-  itemName: UNCOMMON PISTOL
-  itemObject: {fileID: 0}
+  itemName: Pistol
+  itemMesh: {fileID: 7756376127236956042, guid: 87aa6b53a56bcb14fac83159d8e3fe15, type: 3}
   weaponType: 3
-  minDamage: 6
-  maxDamage: 6
-  weaponClass: 2
+  minDamage: 2
+  maxDamage: 7
+  weaponClass: 1

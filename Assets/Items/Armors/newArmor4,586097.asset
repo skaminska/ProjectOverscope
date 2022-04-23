@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c55ae90226b01f24992390056cd63828, type: 3}
-  m_Name: UNCOMMON PISTOL
+  m_Script: {fileID: 11500000, guid: 995925bf1f9b53147a40e5868dc035f6, type: 3}
+  m_Name: newArmor4,586097
   m_EditorClassIdentifier: 
-  itemType: 0
-  itemName: UNCOMMON PISTOL
-  itemObject: {fileID: 0}
-  weaponType: 3
-  minDamage: 6
-  maxDamage: 6
-  weaponClass: 2
+  itemType: 1
+  itemName: newArmor4,586097

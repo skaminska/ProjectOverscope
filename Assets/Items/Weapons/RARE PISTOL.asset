@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: RARE PISTOL
+  itemObject: {fileID: 0}
   weaponType: 3
-  minDamage: 9
-  maxDamage: 9
+  minDamage: 17
+  maxDamage: 19
   weaponClass: 3

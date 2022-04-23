@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: COMMON SNIPER
+  itemObject: {fileID: 0}
   weaponType: 8
   minDamage: 8
   maxDamage: 8

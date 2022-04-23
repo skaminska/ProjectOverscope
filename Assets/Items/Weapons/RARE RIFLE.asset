@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: RARE RIFLE
+  itemObject: {fileID: 0}
   weaponType: 6
   minDamage: 33
   maxDamage: 39
