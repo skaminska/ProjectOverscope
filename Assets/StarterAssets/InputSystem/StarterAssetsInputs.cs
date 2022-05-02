@@ -18,6 +18,7 @@ namespace StarterAssets
 		public bool equipment;
 		public bool interact;
 		public bool quests;
+		public bool skillTree;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -75,6 +76,10 @@ namespace StarterAssets
 		{
 			QuestsInput(value.isPressed);
 		}
+		public void OnSkillTree(InputValue value)
+		{
+			SkillTreeInput(value.isPressed);
+		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -122,6 +127,10 @@ namespace StarterAssets
 		public void QuestsInput(bool newQuestState)
 		{
 			quests = newQuestState;
+		}
+		public void SkillTreeInput(bool newSkillTreeState)
+		{
+			skillTree = newSkillTreeState;
 		}
 
 #if !UNITY_IOS || !UNITY_ANDROID

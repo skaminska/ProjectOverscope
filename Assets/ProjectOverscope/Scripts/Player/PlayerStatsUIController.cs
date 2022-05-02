@@ -13,6 +13,7 @@ public class PlayerStatsUIController : MonoBehaviour
     [SerializeField] GameObject equipment;
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject questLog;
+    [SerializeField] GameObject skillTree;
 
     StarterAssetsInputs starterAssetsInputs;
     ThirdPersonController thirdPersonController;
@@ -22,6 +23,7 @@ public class PlayerStatsUIController : MonoBehaviour
         equipment.SetActive(false);
         inventory.SetActive(false);
         questLog.SetActive(false);
+        skillTree.SetActive(false);
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
         thirdPersonController = GetComponent<ThirdPersonController>();
     }
@@ -55,6 +57,21 @@ public class PlayerStatsUIController : MonoBehaviour
         {
             questLog.SetActive(false);
             starterAssetsInputs.quests = false;
+            starterAssetsInputs.SetCursorState(true);
+            thirdPersonController.LockCameraPosition = false;
+        }
+
+        if (starterAssetsInputs.skillTree && !skillTree.activeInHierarchy)
+        {
+            skillTree.SetActive(true);
+            starterAssetsInputs.skillTree = false;
+            starterAssetsInputs.SetCursorState(false);
+            thirdPersonController.LockCameraPosition = true;
+        }
+        else if (starterAssetsInputs.skillTree && skillTree.activeInHierarchy)
+        {
+            skillTree.SetActive(false);
+            starterAssetsInputs.skillTree = false;
             starterAssetsInputs.SetCursorState(true);
             thirdPersonController.LockCameraPosition = false;
         }

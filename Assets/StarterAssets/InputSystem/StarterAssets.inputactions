@@ -78,6 +78,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "SkillTree",
+                    "type": "Button",
+                    "id": "3fd0594e-b857-4577-92b1-8fd47f35112c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Inventory",
                     "type": "Button",
                     "id": "24f85602-b8a1-42f9-9b9e-6184f536b96f",
@@ -358,6 +367,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Quests",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9f1fd8d-77f7-4466-a00a-7786219c66f8",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkillTree",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -9,6 +9,8 @@ public class PlayerStats : Singleton<PlayerStats>
     PlayerStatsUIController playerStatsUIController;
     QuestLog questLogController;
 
+    [SerializeField] List<Stat> stats;
+
     int maxHealth;
     int currentHealth;
     int baseDamage;
@@ -67,6 +69,15 @@ public class PlayerStats : Singleton<PlayerStats>
         }
     }
 
+    public void ChangeStat(StatType statType, AffectValue affectValue, int valueToAdd)
+    {
+        var statToChange = stats.Find(x => x.GetStatType() == statType);
+        if (affectValue == AffectValue.BASE)
+            statToChange.ChangeValue(valueToAdd);
+        else
+            statToChange.ChangeBoost(valueToAdd);
+    }
+
     private void NextLevel()
     {
         currentLevel++;
@@ -74,6 +85,11 @@ public class PlayerStats : Singleton<PlayerStats>
         experiencePoints -= nextLevelRequirements;
         nextLevelRequirements = currentLevel * 5;
         playerStatsUIController.SetNewLevel(experiencePoints, nextLevelRequirements, currentLevel);
+    }
+
+    public int GetSkillPoints()
+    {
+        return skillPoints;
     }
 
     public void SetFollowedQuest(Quest quest)
