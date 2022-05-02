@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: Hands
+  itemObject: {fileID: 0}
   weaponType: 0
   minDamage: 0
   maxDamage: 0
   weaponClass: 1
+  weaponAnimController: {fileID: 9100000, guid: 40db3173a05ae3242b1c182a09b0a183, type: 2}

@@ -19,3 +19,4 @@ MonoBehaviour:
   minDamage: 3
   maxDamage: 3
   weaponClass: 1
+  weaponAnimController: {fileID: 22100000, guid: 7968e6ce165b8f148930d22e1bd2431f, type: 2}

@@ -2040,6 +2040,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootWeapon: {fileID: 104256240604941099, guid: 701e44286e4a3224d856059b8018315c, type: 3}
   lootMoney: {fileID: 0}
+  pistolController: {fileID: 22100000, guid: 7968e6ce165b8f148930d22e1bd2431f, type: 2}
+  rifleController: {fileID: 22100000, guid: 8a51b4cb40ce75248ae34dd5feab0763, type: 2}
 --- !u!1 &8041635892882631839
 GameObject:
   m_ObjectHideFlags: 0

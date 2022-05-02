@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: Pistol
-  itemMesh: {fileID: 7756376127236956042, guid: 87aa6b53a56bcb14fac83159d8e3fe15, type: 3}
+  itemObject: {fileID: 0}
   weaponType: 3
   minDamage: 2
   maxDamage: 7
   weaponClass: 1
+  weaponAnimController: {fileID: 22100000, guid: 7968e6ce165b8f148930d22e1bd2431f, type: 2}

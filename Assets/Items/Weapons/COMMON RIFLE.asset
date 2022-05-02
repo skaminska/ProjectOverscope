@@ -16,6 +16,7 @@ MonoBehaviour:
   itemName: COMMON RIFLE
   itemObject: {fileID: 0}
   weaponType: 6
-  minDamage: 6
-  maxDamage: 6
+  minDamage: 17
+  maxDamage: 19
   weaponClass: 1
+  weaponAnimController: {fileID: 22100000, guid: 8a51b4cb40ce75248ae34dd5feab0763, type: 2}

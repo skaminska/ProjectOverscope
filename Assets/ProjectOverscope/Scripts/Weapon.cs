@@ -9,6 +9,7 @@ public class Weapon : Item
     [SerializeField] public int minDamage;
     [SerializeField] public int maxDamage;
     [SerializeField] public WeaponClass weaponClass;
+    [SerializeField] RuntimeAnimatorController weaponAnimController;
 
     public void SetWeaponStats(WeaponClass weaponClass, Type weaponType, string weaponName, int damage)
     {
@@ -21,7 +22,14 @@ public class Weapon : Item
         Debug.Log(this.weaponClass + " " + this.weaponType + " " + this.minDamage + "-" + this.maxDamage + "  | Level: " + PlayerStats.Instance.GetCurrentLevel());
     }
 
-
+    public void SetAnimationController(RuntimeAnimatorController controller)
+    {
+        weaponAnimController = controller;
+    }
+    public RuntimeAnimatorController GetWeaponAnimatorController()
+    {
+        return weaponAnimController;
+    }
 }
 public enum Type { HANDS=0, MELEE=10, PISTOL=3, RIFLE=6, SNIPER=8 }
 public enum WeaponClass { COMMON=1, UNCOMMON=2, RARE=3, EPIC=4, LEGENDARY=5}

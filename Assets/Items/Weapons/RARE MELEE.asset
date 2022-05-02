@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: RARE MELEE
+  itemObject: {fileID: 0}
   weaponType: 10
-  minDamage: 27
-  maxDamage: 33
+  minDamage: 81
+  maxDamage: 99
   weaponClass: 3
+  weaponAnimController: {fileID: 0}

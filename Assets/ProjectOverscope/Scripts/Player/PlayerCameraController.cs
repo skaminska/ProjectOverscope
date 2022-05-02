@@ -29,7 +29,6 @@ public class PlayerCameraController : MonoBehaviour
         thirdPersonController = GetComponent<ThirdPersonController>();
         weaponController = GetComponent<WeaponController>();
         animator = GetComponent<Animator>();
-        //weaponEquiped = true;
     }
 
     void FixedUpdate()
@@ -58,6 +57,8 @@ public class PlayerCameraController : MonoBehaviour
 
         if (starterAssetsInputs.aim)
         {
+            weaponController.SetAnimation(true);
+
             combatCamera.gameObject.SetActive(true);
             thirdPersonController.SetSensitivity(combatSensitivity);
             thirdPersonController.SetRotateOnMove(false);
@@ -69,19 +70,18 @@ public class PlayerCameraController : MonoBehaviour
 
             transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
 
-            weaponController.SetAnimation(true);
-            //animator.SetLayerWeight(1, 1f);
+
         }
         else
         {
+            weaponController.SetAnimation(false);
+            
             combatCamera.gameObject.SetActive(false);
             thirdPersonController.SetSensitivity(normalSensitivity);
             thirdPersonController.SetRotateOnMove(true);
-            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
             crosshair.SetActive(false);
 
-            weaponController.SetAnimation(false);
-            //animator.SetLayerWeight(1, 0f);
+
         }
 
         if (starterAssetsInputs.atack)

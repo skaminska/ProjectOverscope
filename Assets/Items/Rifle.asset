@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55ae90226b01f24992390056cd63828, type: 3}
   m_Name: Rifle
   m_EditorClassIdentifier: 
-  type: 0
+  itemType: 0
   itemName: Rifle
+  itemObject: {fileID: 0}
   weaponType: 6
   minDamage: 7
   maxDamage: 15
   weaponClass: 1
+  weaponAnimController: {fileID: 22100000, guid: 8a51b4cb40ce75248ae34dd5feab0763, type: 2}

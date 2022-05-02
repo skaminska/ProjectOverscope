@@ -8,6 +8,7 @@ public class RandomItemDropper : MonoBehaviour
 {
     [SerializeField] GameObject lootWeapon;
     [SerializeField] GameObject lootMoney;
+    [SerializeField] RuntimeAnimatorController pistolController, rifleController;
     public void DrawLoot()
     {
 
@@ -81,6 +82,11 @@ public class RandomItemDropper : MonoBehaviour
 
         Weapon newWeapon = ScriptableObject.CreateInstance<Weapon>();
         newWeapon.SetWeaponStats(weaponClass, weaponType, name, damage);
+        //This is TMP
+        if (weaponType == Type.PISTOL)
+            newWeapon.SetAnimationController(pistolController);
+        else if (weaponType == Type.RIFLE)
+            newWeapon.SetAnimationController(rifleController);
         AssetDatabase.CreateAsset(newWeapon, "Assets/Items/Weapons/" + newWeapon.itemName + ".asset");
         var loot = Instantiate(lootWeapon, transform.position, Quaternion.identity);
         loot.GetComponent<TakeItem>().SetItem(newWeapon);
