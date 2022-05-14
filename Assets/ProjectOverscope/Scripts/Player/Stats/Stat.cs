@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Stat : MonoBehaviour
@@ -8,18 +6,21 @@ public class Stat : MonoBehaviour
     [SerializeField] int currentValue;
     [SerializeField] int maxValue;
     [SerializeField] int valueBase; //basic max value without the boost
-    [SerializeField] int boostPercent; //boost is percent that will be added to base value and will create max value
+    [SerializeField] int boostPercent; //boost is the percent value that will be added to the base value and will create a max value
+
 
     public int GetCurrentValue()
     {
         return currentValue;
     }
-
     public StatType GetStatType()
     {
         return statType;
     }
-
+    public void ChangeCurrentValue(int change)
+    {
+        currentValue += change;
+    }
     public void ChangeValue(int valueToAdd)//valueToAdd could be >0
     {
         valueBase += valueToAdd;

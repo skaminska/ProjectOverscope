@@ -8,7 +8,9 @@ public class NPCStats : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] int NPCLevel;
     [SerializeField] int NPCexpMultiplier;
+    [SerializeField] protected NPCState state;
     RandomItemDropper randomItemDropper;
+
 
     private void Start()
     {
@@ -40,3 +42,5 @@ public class NPCStats : MonoBehaviour
         }
     }
 }
+
+public enum NPCState {STAND, PATROL, SEE_PLAYER, FIGHT, SEARCH_FOR_PLAYER, GO_BACK_TO_START_POSITION}

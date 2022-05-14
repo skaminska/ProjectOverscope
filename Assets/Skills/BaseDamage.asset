@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1da38bb2a3f908429f011b63ac54862, type: 3}
+  m_Name: BaseDamage
+  m_EditorClassIdentifier: 
+  affectStat: 1
+  valueToAdd: 10
+  nextSkill: {fileID: 11400000, guid: 5f6d3646aa9d1f84580f9fba6b651163, type: 2}
+  bought: 0
+  affectValue: 0

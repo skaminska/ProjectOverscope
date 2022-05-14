@@ -8,9 +8,9 @@ public class NPCMovement : NPCStats
     Transform destination;
     NavMeshAgent agent;
 
-
     private void Awake()
     {
+        //state = NPCState.WALK;
         agent = GetComponent<NavMeshAgent>();
     }
     void LateUpdate()
@@ -19,7 +19,6 @@ public class NPCMovement : NPCStats
         transform.LookAt(destination.position);
         if(Vector3.Distance(transform.position, destination.position) < 1.0f)
         {
-            //agent.enabled = false;
             BasicNPCController.Instance.AddToList(this.gameObject);
             this.gameObject.SetActive(false);
         }

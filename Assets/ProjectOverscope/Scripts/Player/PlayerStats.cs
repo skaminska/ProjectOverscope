@@ -43,6 +43,13 @@ public class PlayerStats : Singleton<PlayerStats>
         questLogController = FindObjectOfType<QuestLog>();
     }
 
+    public void ChangeCurrentStatValue(StatType statType, int value)
+    {
+        var statToChange = stats.Find(x => x.GetStatType() == statType);
+        statToChange.ChangeCurrentValue(value);
+        Debug.Log("Player health: "+statToChange.GetCurrentValue());
+    }
+
     internal void AddMoney(int money)
     {
         this.money = money;
@@ -77,7 +84,7 @@ public class PlayerStats : Singleton<PlayerStats>
         else
             statToChange.ChangeBoost(valueToAdd);
     }
-
+     
     private void NextLevel()
     {
         currentLevel++;
