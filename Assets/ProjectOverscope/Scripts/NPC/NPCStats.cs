@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NPCStats : MonoBehaviour
 {
-    [SerializeField] int healthPoint;
+    [SerializeField] protected int healthPoint;
     [SerializeField] float speed;
     [SerializeField] int NPCLevel;
     [SerializeField] int NPCexpMultiplier;
@@ -17,14 +17,14 @@ public class NPCStats : MonoBehaviour
         randomItemDropper = GetComponent<RandomItemDropper>();
     }
 
-    public void GetHit(int hit)
+
+    public virtual void GetHit(int hit)
     {
         healthPoint -= hit;
         if(healthPoint <= 0)
         {
             randomItemDropper.DrawLoot();
             PlayerStats.Instance.AddExperiencePoint(NPCexpMultiplier * NPCLevel);
-            BasicNPCController.Instance.AddToList(this.gameObject);
             foreach (var quest in PlayerStats.Instance.GetColletedQuests())
             {
                 if (quest.GetQuestType() == QuestType.ELIMINATE)
@@ -34,13 +34,13 @@ public class NPCStats : MonoBehaviour
                         ((QuestType_Eliminate)quest.GetQuestRequirements()).TargetEliminated();
                         quest.CheckIfQuestCompleted();
                     }
-
                 }
             }
-
-            gameObject.SetActive(false);
+            GetHitAddictionalBehaviour();
+            //gameObject.SetActive(false);
         }
     }
+    public virtual void GetHitAddictionalBehaviour(){}
 }
 
 public enum NPCState {STAND, PATROL, SEE_PLAYER, FIGHT, SEARCH_FOR_PLAYER, GO_BACK_TO_START_POSITION}

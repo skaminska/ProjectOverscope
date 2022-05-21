@@ -15,13 +15,19 @@ public class NPCMovement : NPCStats
     }
     void LateUpdate()
     {
-
         transform.LookAt(destination.position);
         if(Vector3.Distance(transform.position, destination.position) < 1.0f)
         {
             BasicNPCController.Instance.AddToList(this.gameObject);
             this.gameObject.SetActive(false);
         }
+    }
+
+    public override void GetHitAddictionalBehaviour()
+    {
+        base.GetHitAddictionalBehaviour();
+        BasicNPCController.Instance.AddToList(this.gameObject);
+        gameObject.SetActive(false);
     }
 
     public void SetDestination(Transform newDestination)

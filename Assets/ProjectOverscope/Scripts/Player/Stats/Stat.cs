@@ -13,11 +13,15 @@ public class Stat : MonoBehaviour
     {
         return currentValue;
     }
+    public int GetMaxValue()
+    {
+        return maxValue;
+    }
     public StatType GetStatType()
     {
         return statType;
     }
-    public void ChangeCurrentValue(int change)
+    public virtual void ChangeCurrentValue(int change)
     {
         currentValue += change;
     }
