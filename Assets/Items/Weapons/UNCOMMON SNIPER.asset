@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: UNCOMMON SNIPER
   itemObject: {fileID: 0}
   weaponType: 8
-  minDamage: 15
-  maxDamage: 17
+  minDamage: 29
+  maxDamage: 35
   weaponClass: 2
   weaponAnimController: {fileID: 0}

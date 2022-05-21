@@ -5,6 +5,7 @@ using UnityEngine;
 using StarterAssets;
 using System;
 
+//TO DO clean this script
 public class PlayerCameraController : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera combatCamera;
@@ -68,9 +69,12 @@ public class PlayerCameraController : MonoBehaviour
             worldAimTarget.y = transform.position.y;
             Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
 
+            if(hitedObj.GetComponent<NPCAgressive>() != null)
+            {
+                hitedObj.GetComponent<NPCAgressive>().ShowHealthBar();
+            }
+
             transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
-
-
         }
         else
         {
@@ -80,8 +84,6 @@ public class PlayerCameraController : MonoBehaviour
             thirdPersonController.SetSensitivity(normalSensitivity);
             thirdPersonController.SetRotateOnMove(true);
             crosshair.SetActive(false);
-
-
         }
 
         if (starterAssetsInputs.atack)
@@ -89,7 +91,6 @@ public class PlayerCameraController : MonoBehaviour
             starterAssetsInputs.atack = false;
             switch (weaponController.GetCurrentWeaponType())
             {
-                
                 case Type.HANDS:
                     break;
                 // Each weaponType should have own anims and behaviours

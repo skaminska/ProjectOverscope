@@ -14,6 +14,7 @@ public class PlayerStatsUIController : MonoBehaviour
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject questLog;
     [SerializeField] GameObject skillTree;
+    [SerializeField] Slider healthBar;
 
     StarterAssetsInputs starterAssetsInputs;
     ThirdPersonController thirdPersonController;
@@ -24,6 +25,7 @@ public class PlayerStatsUIController : MonoBehaviour
         inventory.SetActive(false);
         questLog.SetActive(false);
         skillTree.SetActive(false);
+        
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
         thirdPersonController = GetComponent<ThirdPersonController>();
     }
@@ -93,5 +95,11 @@ public class PlayerStatsUIController : MonoBehaviour
     {
         level.text = currentLevel.ToString();
         expSlider.maxValue = nextLevelRequirements;
+    }
+
+    public void UpdateHealthBar(int maxValue, int currentValue)
+    {
+        healthBar.maxValue = maxValue;
+        healthBar.value = currentValue;
     }
 }

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: LEGENDARY SNIPER
+  itemObject: {fileID: 0}
   weaponType: 8
   minDamage: 36
   maxDamage: 44
   weaponClass: 5
+  weaponAnimController: {fileID: 0}

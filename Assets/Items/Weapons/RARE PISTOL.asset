@@ -16,6 +16,7 @@ MonoBehaviour:
   itemName: RARE PISTOL
   itemObject: {fileID: 0}
   weaponType: 3
-  minDamage: 17
-  maxDamage: 19
+  minDamage: 9
+  maxDamage: 9
   weaponClass: 3
+  weaponAnimController: {fileID: 22100000, guid: 7968e6ce165b8f148930d22e1bd2431f, type: 2}

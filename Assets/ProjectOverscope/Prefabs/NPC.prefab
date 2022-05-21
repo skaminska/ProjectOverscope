@@ -1947,7 +1947,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7948840288487214981}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4363271873045458067}
@@ -1971,6 +1971,8 @@ MonoBehaviour:
   speed: 2
   NPCLevel: 1
   NPCexpMultiplier: 1
+  state: 0
+  healthBar: {fileID: 0}
 --- !u!95 &3554024885151366182
 Animator:
   serializedVersion: 3
@@ -2040,6 +2042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootWeapon: {fileID: 104256240604941099, guid: 701e44286e4a3224d856059b8018315c, type: 3}
   lootMoney: {fileID: 0}
+  dropOffset: {x: 0, y: 0.15, z: 0}
   pistolController: {fileID: 22100000, guid: 7968e6ce165b8f148930d22e1bd2431f, type: 2}
   rifleController: {fileID: 22100000, guid: 8a51b4cb40ce75248ae34dd5feab0763, type: 2}
 --- !u!1 &8041635892882631839

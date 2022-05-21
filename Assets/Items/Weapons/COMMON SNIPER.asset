@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: COMMON SNIPER
   itemObject: {fileID: 0}
   weaponType: 8
-  minDamage: 15
-  maxDamage: 17
+  minDamage: 8
+  maxDamage: 8
   weaponClass: 1
   weaponAnimController: {fileID: 0}

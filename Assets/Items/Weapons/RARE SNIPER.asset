@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: RARE SNIPER
+  itemObject: {fileID: 0}
   weaponType: 8
   minDamage: 22
   maxDamage: 26
   weaponClass: 3
+  weaponAnimController: {fileID: 0}

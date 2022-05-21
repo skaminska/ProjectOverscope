@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: COMMON MELEE
   itemObject: {fileID: 0}
   weaponType: 10
-  minDamage: 18
-  maxDamage: 22
+  minDamage: 9
+  maxDamage: 11
   weaponClass: 1
   weaponAnimController: {fileID: 0}
