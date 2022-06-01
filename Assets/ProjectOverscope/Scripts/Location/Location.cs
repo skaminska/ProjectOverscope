@@ -25,6 +25,7 @@ public class Location : MonoBehaviour
         if (enemies.Find((x) => x.isActiveAndEnabled == true))
         {
             Debug.Log("All enemied die");
+            PlayerStats.Instance.AddExperiencePoint(5);
         }
     }
 }

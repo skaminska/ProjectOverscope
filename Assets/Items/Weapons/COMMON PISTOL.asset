@@ -15,8 +15,10 @@ MonoBehaviour:
   itemType: 0
   itemName: COMMON PISTOL
   itemObject: {fileID: 0}
+  value: 0
+  icon: {fileID: 0}
   weaponType: 3
-  minDamage: 3
-  maxDamage: 3
+  minDamage: 6
+  maxDamage: 6
   weaponClass: 1
   weaponAnimController: {fileID: 22100000, guid: 7968e6ce165b8f148930d22e1bd2431f, type: 2}

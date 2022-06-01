@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: COMMON RIFLE
-  itemObject: {fileID: 0}
+  value: 0
+  icon: {fileID: 0}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
   weaponType: 6
   minDamage: 6
   maxDamage: 6

@@ -76,6 +76,7 @@ public class NPCAgressive : NPCStats
                     break;
                 case NPCState.SEE_PLAYER:
                     agent.isStopped = true;
+                    animator.SetBool("lookForPlayer", false);
                     if (player != null)
                         transform.LookAt(player.transform.position);
                     break;
@@ -83,6 +84,7 @@ public class NPCAgressive : NPCStats
                     if (!weapon.activeInHierarchy)
                     {
                         weapon.SetActive(true);
+                        
                     }
                     if (!shoot && Vector3.Distance(transform.position, player.transform.position) <= 10.0f)
                     {
@@ -219,7 +221,7 @@ public class NPCAgressive : NPCStats
         state = NPCState.FIGHT;
 
         infoColor.material = fight;
-
+        animator.SetBool("lookForPlayer", false);
         taskNotSet = true;
     }
 

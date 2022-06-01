@@ -9,16 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c55ae90226b01f24992390056cd63828, type: 3}
-  m_Name: UNCOMMON SNIPER
+  m_Script: {fileID: 11500000, guid: 995925bf1f9b53147a40e5868dc035f6, type: 3}
+  m_Name: newArmor4,494879
   m_EditorClassIdentifier: 
-  itemType: 0
-  itemName: UNCOMMON SNIPER
-  itemObject: {fileID: 0}
+  itemType: 1
+  itemName: newArmor4,494879
   value: 0
   icon: {fileID: 0}
-  weaponType: 8
-  minDamage: 15
-  maxDamage: 17
-  weaponClass: 2
-  weaponAnimController: {fileID: 0}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
