@@ -27,7 +27,7 @@ public class RandomItemDropper : MonoBehaviour
             {
                 PlayerStats.Instance.AddMoney(UnityEngine.Random.Range(5, 10));
             }
-            else if (whatToDrop < 50)
+            else if (whatToDrop < 100)
             {
                 newItem = generateRandomItem.GenerateRandomItemOfType(ItemType.WEAPON);
             }

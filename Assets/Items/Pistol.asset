@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: Pistol
-  itemObject: {fileID: 0}
+  value: 1
+  icon: {fileID: 0}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  itemClass: 1
+  itemLevel: 1
   weaponType: 3
   minDamage: 2
   maxDamage: 7
-  weaponClass: 1
   weaponAnimController: {fileID: 22100000, guid: 7968e6ce165b8f148930d22e1bd2431f, type: 2}

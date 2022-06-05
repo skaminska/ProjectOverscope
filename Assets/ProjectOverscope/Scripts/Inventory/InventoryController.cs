@@ -11,9 +11,8 @@ public class InventoryController : Singleton<InventoryController>
     public void AddToInventrory(Item item)
     {
         GameObject newItem = Instantiate(itemPrefab, transform);
-        newItem.GetComponentInChildren<TextMeshProUGUI>().text = item.itemName;
+        //newItem.GetComponentInChildren<TextMeshProUGUI>().text = item.itemName;
         newItem.GetComponent<InventoryUIController>().SetItem(item);
-        newItem.GetComponent<Button>().GetComponent<Image>().color = item.backgroundColor;
         itemsList.Add(newItem);
     }
 

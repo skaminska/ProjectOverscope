@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GenerateRandomItem : MonoBehaviour
 {
     [SerializeField] RuntimeAnimatorController pistolController, rifleController;
     //make dictionary
-    [SerializeField] Sprite pistolIcon, rifleIcon;
+    [SerializeField] Image pistolIcon, rifleIcon;
     public Item GenerateRandomItemOfType(ItemType itemType)
     {
         Item newItem = null;
@@ -26,25 +27,24 @@ public class GenerateRandomItem : MonoBehaviour
 
     Item GenerateWeapon()
     {
-        Item newItem = new Item();
 
-        WeaponClass weaponClass = WeaponClass.COMMON;
+        ItemClass weaponClass = ItemClass.COMMON;
         Type weaponType = Type.MELEE;
 
 
         int rarityPossibility = UnityEngine.Random.Range(0, 100);
         if (rarityPossibility < 65)
-            weaponClass = WeaponClass.COMMON;
+            weaponClass = ItemClass.COMMON;
         else if (rarityPossibility < 85)
-            weaponClass = WeaponClass.UNCOMMON;
+            weaponClass = ItemClass.UNCOMMON;
         else if (rarityPossibility < 95)
-            weaponClass = WeaponClass.RARE;
+            weaponClass = ItemClass.RARE;
         else if (rarityPossibility < 99)
-            weaponClass = WeaponClass.EPIC;
+            weaponClass = ItemClass.EPIC;
         else if (rarityPossibility == 99)
-            weaponClass = WeaponClass.LEGENDARY;
+            weaponClass = ItemClass.LEGENDARY;
 
-        int typePosibility = UnityEngine.Random.Range(0, 4);
+        int typePosibility = Random.Range(1, 4);
         switch (typePosibility)
         {
             case 0:
@@ -72,14 +72,15 @@ public class GenerateRandomItem : MonoBehaviour
         else if (weaponType == Type.RIFLE)
             newWeapon.SetAnimationController(rifleController);
 
-        AssetDatabase.CreateAsset(newWeapon, "Assets/Items/Weapons/" + newWeapon.itemName + ".asset");
-        newItem = newWeapon;
-        newItem.backgroundColor = GetRarityColor(weaponClass);
+        newWeapon.itemLevel = PlayerStats.Instance.GetCurrentLevel();
+        newWeapon.value = newWeapon.itemLevel * (int)newWeapon.itemClass;
         if (weaponType == Type.PISTOL)
-            newItem.icon = pistolIcon;
+            newWeapon.icon = pistolIcon;
         else if (weaponType == Type.RIFLE)
-            newItem.icon = rifleIcon;
-        return newItem;
+            newWeapon.icon = rifleIcon;
+        AssetDatabase.CreateAsset(newWeapon, "Assets/Items/Weapons/" + newWeapon.itemName + ".asset");
+
+        return newWeapon;
     }
     Item GenerateArmor()
     {
@@ -89,19 +90,19 @@ public class GenerateRandomItem : MonoBehaviour
         return newArmor;
     }
 
-    Color GetRarityColor(WeaponClass weaponClass)
+    Color GetRarityColor(ItemClass weaponClass)
     {
         switch (weaponClass)
         {
-            case WeaponClass.COMMON:
+            case ItemClass.COMMON:
                 return Color.gray;
-            case WeaponClass.UNCOMMON:
+            case ItemClass.UNCOMMON:
                 return Color.blue;
-            case WeaponClass.RARE:
+            case ItemClass.RARE:
                 return Color.green;
-            case WeaponClass.EPIC:
+            case ItemClass.EPIC:
                 return Color.magenta;
-            case WeaponClass.LEGENDARY:
+            case ItemClass.LEGENDARY:
                 return Color.yellow;
             default:
                 return Color.white;
