@@ -6,7 +6,7 @@ using StarterAssets;
 using System;
 
 //TO DO clean this script
-public class PlayerCameraController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera combatCamera;
     [SerializeField] float normalSensitivity;

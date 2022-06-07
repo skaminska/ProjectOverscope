@@ -18,7 +18,8 @@ public class InventoryUIController : MonoBehaviour
 
     private void Start()
     {
-        SetItemInfo();
+        if(item!=null)
+            SetItemInfo();
     }
 
     public void OnEquipmentItemClick()

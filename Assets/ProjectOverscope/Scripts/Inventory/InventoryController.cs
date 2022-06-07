@@ -33,12 +33,12 @@ public class InventoryController : Singleton<InventoryController>
             {
                 element.SetActive(true);
                 element.GetComponent<Button>().onClick.RemoveAllListeners();
-                element.GetComponent<Button>().onClick.AddListener(() => Test(itemToChangeController, element.GetComponent<InventoryUIController>()));
+                element.GetComponent<Button>().onClick.AddListener(() => ChangeEquipedItem(itemToChangeController, element.GetComponent<InventoryUIController>()));
             }
         }
     }
 
-    void Test(InventoryUIController itemToChange, InventoryUIController controller)
+    void ChangeEquipedItem(InventoryUIController itemToChange, InventoryUIController controller)
     {
         //Debug.Log(itemToChange.GetItem() + " -> item to change   ===> " + controller.GetItem() + " -> new Item");
 
@@ -48,5 +48,22 @@ public class InventoryController : Singleton<InventoryController>
 
         itemToChange.OnEquipmentItemClick();
         EquipedItems.Instance.UpdateEquipedElements();
+    }
+
+    public void ShowInventoryInShop()
+    {
+        foreach (var element in itemsList)
+        {
+            element.SetActive(true);
+            element.GetComponent<Button>().onClick.RemoveAllListeners();
+            element.GetComponent<Button>().onClick.AddListener(() => SellItem(element));
+        }
+    }
+
+    void SellItem(GameObject item)
+    {
+        PlayerStats.Instance.AddMoney(item.GetComponent<InventoryUIController>().GetItem().value);
+        itemsList.Remove(item);
+        Destroy(item);
     }
 }

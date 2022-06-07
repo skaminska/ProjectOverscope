@@ -14,6 +14,7 @@ public class PlayerStatsUIController : MonoBehaviour
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject questLog;
     [SerializeField] GameObject skillTree;
+    [SerializeField] GameObject shopUI;
     [SerializeField] Slider healthBar;
 
     StarterAssetsInputs starterAssetsInputs;
@@ -76,6 +77,20 @@ public class PlayerStatsUIController : MonoBehaviour
             starterAssetsInputs.skillTree = false;
             starterAssetsInputs.SetCursorState(true);
             thirdPersonController.LockCameraPosition = false;
+        }
+
+        if(shopUI.activeInHierarchy && starterAssetsInputs.interact)
+        {
+            shopUI.SetActive(false);
+            inventory.SetActive(false);
+            starterAssetsInputs.interact = false;
+            starterAssetsInputs.SetCursorState(true);
+            thirdPersonController.LockCameraPosition = false;
+        }
+        else if(shopUI.activeInHierarchy)
+        {
+            starterAssetsInputs.SetCursorState(false);
+            thirdPersonController.LockCameraPosition = true;
         }
     }
 
