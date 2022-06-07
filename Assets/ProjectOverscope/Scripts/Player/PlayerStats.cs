@@ -50,9 +50,15 @@ public class PlayerStats : Singleton<PlayerStats>
         Debug.Log("Player health: "+statToChange.GetCurrentValue());
     }
 
-    internal void AddMoney(int money)
+    internal void ChangeMoneyAmount(int money)
     {
-        this.money = money;
+        this.money += money;
+        playerStatsUIController.SetMoneyInfo();
+    }
+
+    public int GetMoneyAmount()
+    {
+        return money;
     }
 
     public int GetCurrentDamage()

@@ -25,7 +25,7 @@ public class RandomItemDropper : MonoBehaviour
             int whatToDrop = UnityEngine.Random.Range(0, 100);
             if (whatToDrop < 0)
             {
-                PlayerStats.Instance.AddMoney(UnityEngine.Random.Range(5, 10));
+                PlayerStats.Instance.ChangeMoneyAmount(UnityEngine.Random.Range(5, 10));
             }
             else if (whatToDrop < 100)
             {

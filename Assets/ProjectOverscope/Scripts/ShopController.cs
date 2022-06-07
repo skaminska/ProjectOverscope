@@ -37,8 +37,13 @@ public class ShopController : MonoBehaviour, IInteractible
 
     void BuyItem(Item item, GameObject itemObject)
     {
-        inventory.AddToInventrory(item);
-        itemObject.SetActive(false);
+        if(PlayerStats.Instance.GetMoneyAmount() >= item.value)
+        {
+            inventory.AddToInventrory(item);
+            PlayerStats.Instance.ChangeMoneyAmount(-item.value);
+            itemObject.SetActive(false);
+        }
+
     }
 
 

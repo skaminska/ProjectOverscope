@@ -13,6 +13,9 @@ public class InventoryController : Singleton<InventoryController>
         GameObject newItem = Instantiate(itemPrefab, transform);
         //newItem.GetComponentInChildren<TextMeshProUGUI>().text = item.itemName;
         newItem.GetComponent<InventoryUIController>().SetItem(item);
+
+        newItem.GetComponent<Button>().onClick.RemoveAllListeners();
+        newItem.GetComponent<Button>().onClick.AddListener(() => SellItem(newItem));
         itemsList.Add(newItem);
     }
 
@@ -62,7 +65,7 @@ public class InventoryController : Singleton<InventoryController>
 
     void SellItem(GameObject item)
     {
-        PlayerStats.Instance.AddMoney(item.GetComponent<InventoryUIController>().GetItem().value);
+        PlayerStats.Instance.ChangeMoneyAmount(item.GetComponent<InventoryUIController>().GetItem().value);
         itemsList.Remove(item);
         Destroy(item);
     }

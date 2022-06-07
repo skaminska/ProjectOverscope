@@ -10,6 +10,7 @@ public class PlayerStatsUIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI level;
     [SerializeField] Slider expSlider;
+    [SerializeField] TextMeshProUGUI money;
     [SerializeField] GameObject equipment;
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject questLog;
@@ -31,7 +32,7 @@ public class PlayerStatsUIController : MonoBehaviour
         thirdPersonController = GetComponent<ThirdPersonController>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (starterAssetsInputs.equipment && !equipment.activeInHierarchy)
         {
@@ -94,6 +95,10 @@ public class PlayerStatsUIController : MonoBehaviour
         }
     }
 
+    public void SetMoneyInfo()
+    {
+        money.text = PlayerStats.Instance.GetMoneyAmount() + "$";
+    }
     public void SetExpPointValue(int value)
     {
         expSlider.value = value;
